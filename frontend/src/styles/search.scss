@@ -1,0 +1,23 @@
+.search--box {
+  background-color: rgb(213, 242, 159);
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.search--box > label {
+  font-size: 20px;
+}
+
+.search {
+  height: 30px;
+  width: 400px;
+  margin: 5px;
+}
+
+.search--btn {
+  height: 35px;
+  width: 100px;
+  margin: 5px;
+}
