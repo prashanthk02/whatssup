@@ -1,38 +1,15 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+.app--header {
   min-height: 100vh;
+  background-image: url('https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/organising-your-fridge-right-1647347072.jpg?crop=1.00xw:0.751xh;0,0.00240xh&resize=1200:*');
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-blend-mode: lighten;
+}
+
+.header--options {
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+  align-items: center;
+  border: 5px solid black;
 }
