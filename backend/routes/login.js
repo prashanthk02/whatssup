@@ -30,8 +30,20 @@ module.exports = (db) => {
     if (!email || !password) {
       return res.status(400).send('Wrong email or password');
     }
+    //check email and password exist in the database
+    getUserByEmail(email, password, db)
+      .then(user => {
+        if (user) {
+          req.session.userID = user.id; // set cookies
+          return res.redirect('/');
+        } else {
+          return res.status(401).send('Invalid! No user found');
+        }
+      })
+      .catch(error => {
+        console.log(error);
+      });
   });
-
+  
   return router;
 }
-
