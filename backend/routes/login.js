@@ -1,30 +1,33 @@
 const router = require('express').Router();
 
-//helper function to query database.
-const getUserByEmail = function (email, password, db) {
-  const queryStringEmail = `SELECT *
+
+const users = ["loginpage"];
+
+module.exports = (db) => {
+  //helper function to query database.
+  const getUserByEmail = function (email, password, db) {
+    const queryStringEmail = `SELECT *
   FROM users
   WHERE email = $1
   AND password = $2`
-  const values = [email, password]
-  return db
-    .query(queryStringEmail, values)
-    .then((result) => {
-      return result.rows[0];
-    })
-    .catch((err) => {
-      console.log(err.message);
-    });
-}
-
-module.exports = (db) => {
+    const values = [email, password]
+    return db
+      .query(queryStringEmail, values)
+      .then((result) => {
+        console.log(result.rows[0]);
+      })
+      .catch((err) => {
+        console.log(err.message);
+      });
+  }
   router.get('/', (req, res) => {
+    getUserByEmail('nhinrichsen0@ezinearticles.com', '2C0?1nvP!B', db);
     res.json(users);
   });
 
   router.post('/', (req, res) => {
-     //retrieve email and password from input form
-     const { email, password } = req.body;
+    //retrieve email and password from input form
+    const { email, password } = req.body;
 
     //validate email and password are provided
     if (!email || !password) {
@@ -44,6 +47,6 @@ module.exports = (db) => {
         console.log(error);
       });
   });
-  
+
   return router;
 }
