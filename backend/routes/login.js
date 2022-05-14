@@ -25,7 +25,13 @@ module.exports = (db) => {
   router.post('/', (req, res) => {
      //retrieve email and password from input form
      const { email, password } = req.body;
+
+    //validate email and password are provided
+    if (!email || !password) {
+      return res.status(400).send('Wrong email or password');
+    }
   });
 
   return router;
 }
+
