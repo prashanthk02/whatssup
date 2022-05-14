@@ -28,7 +28,11 @@ module.exports = (db) => {
   });
 
   router.post('/', (req,res) => {
-
+    const user = req.body;
+    // validate user completes all fields
+    if (user.email === "" || user.password === "" || user.name === "") {
+      return res.status(403).send("Invalid User");
+    }
   })
   return router;
 }
