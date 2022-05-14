@@ -23,7 +23,8 @@ module.exports = (db) => {
   });
 
   router.post('/', (req, res) => {
-
+     //retrieve email and password from input form
+     const { email, password } = req.body;
   });
 
   return router;
