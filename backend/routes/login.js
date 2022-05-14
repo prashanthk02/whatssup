@@ -12,7 +12,8 @@ const getUserByEmail = function (email, password, db) {
   return db
     .query(queryStringEmail, values)
     .then((result) => {
-      console.log(result.rows[0]);
+      console.log(`The user ${email} and ${password} exit on database with name ${result.rows[0].name}`)
+      return result.rows[0];
     })
     .catch((err) => {
       console.log(err.message);
@@ -22,7 +23,6 @@ const getUserByEmail = function (email, password, db) {
 module.exports = (db) => {
 
   router.get('/', (req, res) => {
-    getUserByEmail('nhinrichsen0@ezinearticles.com', '2C0?1nvP!B', db);
     res.json(users);
   });
 

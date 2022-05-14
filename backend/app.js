@@ -23,13 +23,13 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', indexRouter());
-app.use('/users', usersRouter());
+app.use('/', indexRouter(db));
+app.use('/users', usersRouter(db));
 app.use('/login', loginRouter(db));
-app.use('/register', registerRouter());
-app.use('/new', search_recipes_Router());
-app.use('/recipe', recipe_details_Router());
-app.use('/recipes', recipesRouter());
+app.use('/register', registerRouter(db));
+app.use('/new', search_recipes_Router(db));
+app.use('/recipe', recipe_details_Router(db));
+app.use('/recipes', recipesRouter(db));
 
 
 module.exports = app;
