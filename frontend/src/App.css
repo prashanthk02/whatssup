@@ -6,10 +6,3 @@
   background-blend-mode: lighten;
 }
 
-.header--options {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  border: 5px solid black;
-}

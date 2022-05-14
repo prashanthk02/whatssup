@@ -8,7 +8,7 @@ export default function Search() {
     <div className="search--box">
 
       <form autoComplete="off" onSubmit={(e) => e.preventDefault()}>
-        <label>Search Recipe: </label>
+        <label>What you have: </label>
         <input type="text" className="search" placeholder="potato,tomato" />
       </form>
       <button type="button" className="search--btn">Find Recipe</button>

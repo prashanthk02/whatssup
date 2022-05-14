@@ -3,6 +3,7 @@ import './App.css';
 import Navbar from './components/Navbar/Navbar';
 import Search from './components/Search/SearchForm';
 import Footer from './components/Footer/Footer';
+import Cuisine from './components/Cuisine/Cuisine';
 
 function App() {
   return (
@@ -10,13 +11,7 @@ function App() {
       <nav><Navbar /></nav>
       <header className='app--header'>
         <Search />
-
-        <div className='header--options'>
-        <h2>What I have</h2>
-        <h2>What I can make</h2>
-        <h2>How I can make</h2>
-        <h2>Random Recipe</h2>
-        </div>
+        <Cuisine />
 
       </header>
       <footer>
