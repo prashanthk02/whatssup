@@ -25,7 +25,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter());
 app.use('/users', usersRouter());
-app.use('/login', loginRouter());
+app.use('/login', loginRouter(db));
 app.use('/register', registerRouter());
 app.use('/new', search_recipes_Router());
 app.use('/recipe', recipe_details_Router());
