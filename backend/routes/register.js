@@ -2,6 +2,7 @@ const router = require('express').Router();
 
 const users = ['Bob', 'Will'];
 
+//define helper function to query database for input registration email
 const getUserByEmail = function(email) {
   const queryString = `SELECT *
   FROM users
@@ -13,6 +14,13 @@ const getUserByEmail = function(email) {
     });
 };
 
+//define a helper function to add new user to database
+const addUser = function(name, email, password) {
+  const queryString = `INSERT INTO users (name, email, password)
+VALUES(
+$1, $2, $3) RETURNING *`;
+  return db.query(queryString, [name, email, password]);
+};
 
 module.exports = (db) => {
   router.get('/', (req, res) => {
