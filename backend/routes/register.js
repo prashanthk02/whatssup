@@ -25,7 +25,7 @@ $1, $2, $3) RETURNING *`;
 };
 
 module.exports = (db) => {
-  
+
   router.get('/', (req, res) => {
   });
 
@@ -33,21 +33,21 @@ module.exports = (db) => {
     const user = req.body;
     // validate user completes all fields
     if (user.email === "" || user.password === "" || user.name === "") {
-      res.json("Error")
+      res.json({ error: "Error" })
     }
     getUserByEmail(user.email, db)
       .then(checkemail => {
         if (checkemail) {
-          return res.status(401).send(`The email ${user.email} already exists!`);
+          return res.json({ error: `The email ${user.email} already exists!` });
         }
         else {
           addUser(user.name, user.email, user.password, db) // add new user to database
             .then(result => {
               if (!result) {
-                return res.status(400).send({ error: "error" });
+                return res.json({ error: "error" });
               }
               // req.session.userID = result.id; // check how to set cookies
-              res.json(result);
+              return res.json(result);
             });
         }
       });
