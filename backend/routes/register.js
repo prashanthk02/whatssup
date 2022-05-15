@@ -1,6 +1,28 @@
 const router = require('express').Router();
 
-const users = ['Bob', 'Will'];
+//define helper function to query database for input registration email
+const getUserByEmail = function (email, db) {
+  const queryString = `SELECT *
+  FROM users
+  WHERE email = $1
+  `;
+  return db.query(queryString, [email])
+    .then((result) => {
+      return result.rows[0];
+    });
+};
+
+//define a helper function to add new user to database
+const addUser = function (name, email, password, db) {
+  const queryString = `INSERT INTO users (name, email, password)
+VALUES(
+$1, $2, $3) RETURNING *`;
+  return db.query(queryString, [name, email, password])
+    .then((result) => {
+      console.log(`Successfully added ${name} to database with id ${result.rows[0].id}!`)
+      return result.rows[0];
+    });
+};
 
 //define helper function to query database for input registration email
 const getUserByEmail = function(email) {
@@ -25,28 +47,27 @@ $1, $2, $3) RETURNING *`;
 module.exports = (db) => {
   
   router.get('/', (req, res) => {
-    res.json(users);
   });
 
-  router.post('/', (req,res) => {
+  router.post('/', (req, res) => {
     const user = req.body;
     // validate user completes all fields
     if (user.email === "" || user.password === "" || user.name === "") {
-      return res.status(403).send("Invalid User");
+      return res.json({ error: "Error" })
     }
-    getEmail(email)
+    getUserByEmail(user.email, db)
       .then(checkemail => {
         if (checkemail) {
-          res.status(400).send('Email already exists');
+          return res.json({ error: `The email ${user.email} already exists!` });
         }
         else {
-          addUser(user.name, user.email, user.password) // add new user to database
+          addUser(user.name, user.email, user.password, db) // add new user to database
             .then(result => {
               if (!result) {
-                return res.status(400).send({ error: "error" });
+                return res.json({ error: "error" });
               }
-              const userID = result.rows[0];
-              req.session.userID = userID.id;
+              // req.session.userID = result.id; // check how to set cookies
+              return res.json(result);
             });
         }
       });

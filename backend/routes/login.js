@@ -10,6 +10,7 @@ const getUserByEmail = function (email, password, db) {
   return db
     .query(queryStringEmail, values)
     .then((result) => {
+      console.log(`The user ${email} and ${password} exit on database with name ${result.rows[0].name}`)
       return result.rows[0];
     })
     .catch((err) => {
@@ -18,32 +19,38 @@ const getUserByEmail = function (email, password, db) {
 }
 
 module.exports = (db) => {
+
   router.get('/', (req, res) => {
-    res.json(users);
+    return db
+    .query("SELECT * FROM users")
+    .then((result) => {
+      return res.json(result.rows);
+    })
   });
 
   router.post('/', (req, res) => {
-     //retrieve email and password from input form
-     const { email, password } = req.body;
+    //retrieve email and password from input form
+    const { email, password } = req.body;
 
     //validate email and password are provided
     if (!email || !password) {
-      return res.status(400).send('Wrong email or password');
+      return res.json({ error: "Missing field" })
     }
     //check email and password exist in the database
     getUserByEmail(email, password, db)
       .then(user => {
         if (user) {
-          req.session.userID = user.id; // set cookies
-          return res.redirect('/');
+          // req.session.userID = user.id; // set cookies
+          return res.json(user)
         } else {
-          return res.status(401).send('Invalid! No user found');
+          console.log(`Invalid! ${email} or ${password} does not match record`)
+          return res.json({ error: `Invalid! ${email} or ${password} does not match record` });
         }
       })
       .catch(error => {
         console.log(error);
       });
   });
-  
+
   return router;
 }

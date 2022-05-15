@@ -1,4 +1,6 @@
 .nav {
+  display: flex;
+  flex-direction: row;
   border: 1px solid rgb(28, 211, 190);
   background-image: linear-gradient(to right, rgba(173, 249, 8, 0.691), rgba(63, 7, 246, 0.5));
   height: 80px;
