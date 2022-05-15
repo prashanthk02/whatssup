@@ -4,8 +4,8 @@ export default function Login() {
   const [email,  setEmail] = useState("")
   const [password,  setPassword] = useState("")
 
-  const onSubmitLoginForm = async e => {
-    e.preventDefault();
+  const onSubmitLoginForm = async (event) => {
+    event.preventDefault();
     try {
       const user = { email, password };
       const response = await fetch("http://localhost:8080/login", {
@@ -37,7 +37,7 @@ export default function Login() {
           placeholder="enter password"
           onChange={e => setPassword(e.target.value)}
         />
-        <button id="login">Login</button>
+        <button>Login</button>
       </form>
     </>
   )
