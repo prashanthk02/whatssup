@@ -33,7 +33,7 @@ module.exports = (db) => {
     const user = req.body;
     // validate user completes all fields
     if (user.email === "" || user.password === "" || user.name === "") {
-      res.json({ error: "Error" })
+      return res.json({ error: "Error" })
     }
     getUserByEmail(user.email, db)
       .then(checkemail => {

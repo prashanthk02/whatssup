@@ -21,6 +21,11 @@ const getUserByEmail = function (email, password, db) {
 module.exports = (db) => {
 
   router.get('/', (req, res) => {
+    return db
+    .query("SELECT * FROM users")
+    .then((result) => {
+      return res.json(result.rows);
+    })
   });
 
   router.post('/', (req, res) => {
