@@ -16,7 +16,6 @@ const recipe_details_Router = require('./routes/recipe_details');
 const recipesRouter = require('./routes/recipes');
 
 const app = express();
-
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));

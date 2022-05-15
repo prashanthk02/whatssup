@@ -1,7 +1,5 @@
 const router = require('express').Router();
 
-const users = ['Bob', 'Will'];
-
 //define helper function to query database for input registration email
 const getUserByEmail = function (email, db) {
   const queryString = `SELECT *
@@ -10,7 +8,6 @@ const getUserByEmail = function (email, db) {
   `;
   return db.query(queryString, [email])
     .then((result) => {
-      console.log(`The user email ${email}, exits on database with name ${result.rows[0].name}`)
       return result.rows[0];
     });
 };
@@ -28,34 +25,28 @@ $1, $2, $3) RETURNING *`;
 };
 
 module.exports = (db) => {
-
+  
   router.get('/', (req, res) => {
-    getUserByEmail("rbraham1@apache.org", db);
-    addUser('Ike Cast', 'ike@cast.org', 'ikeCast', db)
-      .then((result) => {
-        res.json(result);
-      })
   });
 
   router.post('/', (req, res) => {
     const user = req.body;
     // validate user completes all fields
     if (user.email === "" || user.password === "" || user.name === "") {
-      return res.status(403).send("Invalid User");
+      res.json("Error")
     }
-    getUserByEmail(email, db)
+    getUserByEmail(user.email, db)
       .then(checkemail => {
         if (checkemail) {
-          return res.status(400).send('Email already exists!');
+          return res.status(401).send(`The email ${user.email} already exists!`);
         }
         else {
-          addUser(user.name, user.email, user.password) // add new user to database
+          addUser(user.name, user.email, user.password, db) // add new user to database
             .then(result => {
               if (!result) {
                 return res.status(400).send({ error: "error" });
               }
-              const userID = result.rows[0];
-              req.session.userID = userID.id;
+              // req.session.userID = result.id; // check how to set cookies
               res.json(result);
             });
         }
