@@ -1,8 +1,5 @@
 .app--header {
   min-height: 100vh;
-  background-image: url('https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/organising-your-fridge-right-1647347072.jpg?crop=1.00xw:0.751xh;0,0.00240xh&resize=1200:*');
-  background-repeat: no-repeat;
-  background-size: 100% 100%;
-  background-blend-mode: lighten;
+  background-color: rgba(57, 71, 5, 0.506);
 }
 

@@ -1,12 +1,13 @@
 import { useState, useEffect } from "react";
 
+import "../../styles/cuisine.scss"
+
 export default function CuisineListItem({ singleRecipe }) {
-  const [image, setimage] = useState('');
 
   return(
-    <article>
-      <h1>{singleRecipe.title}</h1>
-      <img src={singleRecipe.image} />
+    <article className="recipeBox">
+      <h1 className="recipeBox--title">{singleRecipe.title}</h1>
+      <img src={singleRecipe.image} alt={singleRecipe.title} />
     </article>
   );
 }

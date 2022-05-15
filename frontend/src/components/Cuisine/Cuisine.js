@@ -15,8 +15,7 @@ export default function Cuisine() {
     axios
       .get(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.REACT_APP_API_KEY}&cuisine=${cuisine}`)
       .then((response) => {
-        const result = response.data;
-        console.log(result)
+        const result = response.data.results;
         setRecipe({result});
       })
       .catch(() => {console.log('err')});
