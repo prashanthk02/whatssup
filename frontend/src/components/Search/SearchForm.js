@@ -13,7 +13,7 @@ export default function Search() {
 
   function getByIngredients() {
     axios
-      .get(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.REACT_APP_API_KEY}&ingredients=${ingredients}`)
+      .get(`https://api.spoonacular.com/recipes/findByIngredients?apiKey=${process.env.REACT_APP_API_KEY}&ingredients=${ingredients}`)
       .then((response) => {
         const result = response.data.results;
         setRecipe({result});
