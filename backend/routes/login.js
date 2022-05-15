@@ -38,7 +38,8 @@ module.exports = (db) => {
           // req.session.userID = user.id; // set cookies
           return res.json(user)
         } else {
-          return res.json({ error: "Invalid! No user found" });
+          console.log(`Invalid! ${email} or ${password} does not match record`)
+          return res.json({ error: `Invalid! ${email} or ${password} does not match record` });
         }
       })
       .catch(error => {
