@@ -1,19 +1,19 @@
-import React from "react";
+import React, { Fragment } from "react";
 
 import SearchResultsListItem from "./SearchResultsListItem";
 
 export default function Instruction (prop) {
 
-  const {} = props
+  const {} = prop
   
   return (
     
-    <div className="instruction">
-      <h5>Instructions</h5>
+    <fragment>
+      <h5 className="text-left" >Instructions</h5>
       <p>${}</p>      
 
 
-    </div>
+    </fragment>
 
   )
 }
