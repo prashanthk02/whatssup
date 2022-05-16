@@ -3,22 +3,23 @@ import axios from "axios";
 import SignUp from "./SignUp";
 
 
-export default function Login() {
+export default function Login(props) {
 
   const [state, setState] = useState({
     name: "",
     password: "",
     email: "",
     activeUser: false,
-    error: ""
+    error: "",
+    mode: ""
   });
 
   const onSubmitLoginForm = async (event) => {
     event.preventDefault();
-    const user = {  email: state.email, password: state.password };
+    const user = { email: state.email, password: state.password };
     axios.post("http://localhost:8080/login", user)
       .then((response) => {
-        setState(prev => ({ ...prev, error: response.data.error, email: state.email, activeUser: true }));
+        setState(prev => ({ ...prev, name: response.data.name, error: response.data.error, email: state.email, activeUser: true }));
       });
   };
 
@@ -51,15 +52,16 @@ export default function Login() {
             onChange={e => (setState(prev => ({ ...prev, email: e.target.value })))}
           />
           <input
-            type="text"
+            type="password"
             className="form-control"
             placeholder="enter password"
             onChange={e => (setState(prev => ({ ...prev, password: e.target.value })))}
           />
           <button>Login</button>
+          {props.mode != "SignUp" && <button onClick={() => props.setMode("SignUp")}>SignUp</button>}
           <h6>{state.error}</h6>
         </form>
-        <SignUp state={state} setState={setState}></SignUp>
+        {props.mode == "SignUp" && <SignUp state={state} setState={setState} mode={props.mode} setMode={props.setMode}></SignUp>}
       </>
     )
   }
