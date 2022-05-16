@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function SearchResultsListItem(singleRecipe) {
+export default function SearchResultsListItem({singleRecipe}) {
 
   return (
     <article className="recipeBox">

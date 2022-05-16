@@ -6,8 +6,7 @@ import SearchResultsList from './SearchResultsList'
 
 export default function Search() {
   const [ingredients, setIngredients] = useState("")
-  const [recipe, setRecipe] = useState([])
-  console.log('recipe---1', recipe);
+  const [recipe, setRecipe] = useState(null)
 
   function handleChange(e) {
     setIngredients(e.target.value);
@@ -18,8 +17,7 @@ export default function Search() {
       .get(`https://api.spoonacular.com/recipes/findByIngredients?apiKey=${process.env.REACT_APP_API_KEY}&ingredients=${ingredients}`)
       .then((response) => {
         const results = response.data;
-        setRecipe(results);
-        console.log('recipe---2', recipe);
+        setRecipe({results});
 
       })
       .catch(() => {console.log('err')});
