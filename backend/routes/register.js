@@ -33,12 +33,12 @@ module.exports = (db) => {
     const user = req.body;
     // validate user completes all fields
     if (user.email === "" || user.password === "" || user.name === "") {
-      return res.json({ error: "Invalid!" })
+      return res.json({ error: "Invalid User!" })
     }
     getUserByEmail(user.email, db)
       .then(checkemail => {
         if (checkemail) {
-          return res.json({ error: `The email ${user.email} already exists!` });
+          return res.json({ error: `The email ${user.email} already exists with the name ${checkemail.name}!` });
         }
         else {
           addUser(user.name, user.email, user.password, db) // add new user to database

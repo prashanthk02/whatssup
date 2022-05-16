@@ -33,7 +33,7 @@ module.exports = (db) => {
 
     //validate email and password are provided
     if (!email || !password) {
-      return res.json({ error: "Invalid!" })
+      return res.json({ error: "Invalid User!" })
     }
     //check email and password exist in the database
     getUserByEmail(email, password, db)
