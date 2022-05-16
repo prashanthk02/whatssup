@@ -10,7 +10,6 @@ const getUserByEmail = function (email, password, db) {
   return db
     .query(queryStringEmail, values)
     .then((result) => {
-      console.log(`The user ${email} and ${password} exit on database with name ${result.rows[0].name}`)
       return result.rows[0];
     })
     .catch((err) => {
@@ -22,10 +21,10 @@ module.exports = (db) => {
 
   router.get('/', (req, res) => {
     return db
-    .query("SELECT * FROM users")
-    .then((result) => {
-      return res.json(result.rows);
-    })
+      .query("SELECT * FROM users")
+      .then((result) => {
+        return res.json(result.rows);
+      })
   });
 
   router.post('/', (req, res) => {
@@ -34,7 +33,7 @@ module.exports = (db) => {
 
     //validate email and password are provided
     if (!email || !password) {
-      return res.json({ error: "Missing field" })
+      return res.json({ error: "Invalid User!" })
     }
     //check email and password exist in the database
     getUserByEmail(email, password, db)
@@ -43,8 +42,7 @@ module.exports = (db) => {
           // req.session.userID = user.id; // set cookies
           return res.json(user)
         } else {
-          console.log(`Invalid! ${email} or ${password} does not match record`)
-          return res.json({ error: `Invalid! ${email} or ${password} does not match record` });
+          return res.json({ error: `The email email ${email} or password does not match record` });
         }
       })
       .catch(error => {
