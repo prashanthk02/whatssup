@@ -1,15 +1,11 @@
 import React from "react";
 
-export default function SearchResultsListItem(props) {
-  const {} = props
+export default function SearchResultsListItem({singleRecipe}) {
+
   return (
-    <div>
-      <img 
-        className="results--img"
-        src=''
-        alt=''
-      />
-      <span>{title}</span>
-    </div>
+    <article className="recipeBox">
+      <h1 className="recipeBox--title">{singleRecipe.title}</h1>
+      <img src={singleRecipe.image} alt={singleRecipe.title} />
+    </article>
   );
 }

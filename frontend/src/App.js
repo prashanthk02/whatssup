@@ -6,6 +6,7 @@ import Footer from './components/Footer/Footer';
 import Pages from './pages/Pages';
 import Category from "./components/Category"
 import MealPlan from './components/MealPlan/MealPlan';
+import Layout from './components/Layout/Layout';
 
 function App() {
   return (
@@ -26,6 +27,9 @@ function App() {
       <footer>
         <Footer />
       </footer>
+      <Layout>
+        <p>Test</p>
+      </Layout>
     </>
   );
 }

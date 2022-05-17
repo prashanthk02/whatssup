@@ -1,51 +1,41 @@
-import { useState } from "react"
+import axios from "axios";
+import { useState } from "react";
 
-export default function SignUp() {
-  const [email, setEmail] = useState("")
-  const [password, setPassword] = useState("")
-  const [name, setName] = useState("")
-
+export default function SignUp(props) {
 
   const onSubmitSignUpForm = async (event) => {
     event.preventDefault();
-    try {
-      const user = { name, email, password };
-      const response = await fetch("http://localhost:8080/register", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(user)
+    props.setMode("SignIn")
+    const user = { name: props.state.name, email: props.state.email, password: props.state.password };
+    axios.post("http://localhost:8080/register", user)
+      .then((response) => {
+        if (response.data.error) {
+          return props.setState(prev => ({ ...prev, error: response.data.error, email: "", }));
+        }
+        props.setState(prev => ({ ...prev, error: response.data.error, email: props.state.email, activeUser: true }));
       });
-      console.log(response)
-      window.location = "/";
-    } catch (err) {
-      console.error(err.message);
-    }
   };
-
 
   return (
     <>
       <form onSubmit={onSubmitSignUpForm}>
-      <input
+        <input
           type="text"
           className="form-control"
-          value={name}
           placeholder="enter name"
-          onChange={e => setName(e.target.value)}
+          onChange={e => (props.setState(prev => ({ ...prev, name: e.target.value })))}
         />
         <input
           type="text"
-          className="form-control"
-          value={email}
           placeholder="enter email"
-          onChange={e => setEmail(e.target.value)}
+          className="form-control"
+          onChange={e => (props.setState(prev => ({ ...prev, email: e.target.value })))}
         />
         <input
-          type="text"
+          type="password"
           className="form-control"
-          value={password}
           placeholder="enter password"
-          onChange={e => setPassword(e.target.value)}
+          onChange={e => (props.setState(prev => ({ ...prev, password: e.target.value })))}
         />
         <button>Register</button>
       </form>
