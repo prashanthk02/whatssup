@@ -1,12 +1,11 @@
 .search--box {
-  background-color: rgb(213, 242, 159);
+  display: flex;
   margin: 10px 10px 0px 40px;
-  padding-bottom: 20px;
   height: 70px;
   display: flex;
-  // flex-direction: row;
-  // align-items: left;
-  // justify-content: center;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
 }
 
 .search--box > label {
@@ -15,7 +14,7 @@
 
 .search {
   height: 30px;
-  width: 400px;
+  width: 300px;
   margin: 5px;
 }
 

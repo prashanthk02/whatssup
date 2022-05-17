@@ -1,0 +1,43 @@
+.popular--box {
+  margin-top: 20px;
+  border: 2px solid black;
+
+  h3 {
+    padding-left: 140px;
+  }
+}
+
+.popular--receipe--card {
+  min-height: 25rem;
+	border-radius: 2rem;
+	overflow: hidden;
+	position: relative;true
+
+	img {
+		border-radius: 2rem;
+		position: absolute;
+		left: 0;
+		width: 90%;
+		height: 90%;
+		object-fit: cover;
+    padding-left: 20px;
+	}
+
+	p {
+		position: absolute;
+		z-index: 10;
+		left: 30%;
+		bottom: 70%;
+		transform: translate(-50%, 0);
+		color: white;
+		width: 90%;
+		text-align: center;
+		font-weight: 600;
+		font-size: 1.5rem;
+		height: 40%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+}
+
