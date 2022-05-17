@@ -1,6 +1,6 @@
 DROP TABLE IF EXISTS recipes CASCADE;
 
-CREATE TABLE recipes (
+CREATE TABLE favorites (
   id SERIAL PRIMARY KEY NOT NULL,
   user_id INTEGER REFERENCES users(id) NOT NULL,
   recipe_id VARCHAR(255) NOT NULL,
