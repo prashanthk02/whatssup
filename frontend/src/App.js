@@ -4,15 +4,27 @@ import Navbar from './components/Navbar/Navbar';
 import Search from './components/Search/SearchForm';
 import Footer from './components/Footer/Footer';
 import Cuisine from './components/Cuisine/Cuisine';
+import Pages from './pages/Pages';
+import Category from "./components/Category"
+import MealPlan from './components/MealPlan/MealPlan';
 
 function App() {
   return (
     <>
       <nav><Navbar /></nav>
       <header className='app--header'>
-        <Search />
-        <Cuisine />
-
+        <div className='app--search'>
+          <Search />
+          <Cuisine />
+          
+          
+        </div>
+        <div className='category--div'>
+            <Category />
+        </div>
+        <div className='pages--div'>
+          <Pages />
+        </div>
       </header>
       <footer>
         <Footer />

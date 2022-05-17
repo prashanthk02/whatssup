@@ -1,9 +1,7 @@
 .search--box {
-  background-color: rgb(213, 242, 159);
-  height: 70px;
+  padding-top: 5px;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  border: 1px solid black;
 }
 
 .search--box > label {
@@ -12,7 +10,7 @@
 
 .search {
   height: 30px;
-  width: 400px;
+  width: 300px;
   margin: 5px;
 }
 
