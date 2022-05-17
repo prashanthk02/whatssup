@@ -31,7 +31,6 @@ export default function Search() {
       </form>
       <button type="button" className="search--btn" onClick={getByIngredients}>Find Recipe</button>
       {recipe && < SearchResultsList recipe={recipe} /> }
-
     </div>
   );
 }
