@@ -25,12 +25,12 @@ export default function Searched() {
 		<div>
 			{searchedRecipes.map(recipe => {
 				return (
-					<Link to={`/recipe/${recipe.id}`}>
-						<div key={recipe.id}>
+          <div key={recipe.id}>
+					  <Link to={`/recipe/${recipe.id}`}>
 							<img src={recipe.image} alt={recipe.title} />
 							<h4>{recipe.title}</h4>
-						</div>
-					</Link>
+					  </Link>
+					</div>
 				);
 			})}
 		</div>
