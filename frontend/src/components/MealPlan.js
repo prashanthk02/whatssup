@@ -21,10 +21,6 @@ export default function MealPlan() {
 					value={calories}
 					onChange={e => setCalories(e.target.value)}
 				/>
-        <select>
-          <option>day</option>
-          <option>week</option>
-        </select>
 			</form>
       <button onClick={submitHandler}>GET</button>
 		</div>
