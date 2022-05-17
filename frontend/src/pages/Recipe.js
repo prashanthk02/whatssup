@@ -20,7 +20,12 @@ export default function Recipe() {
 		fetchDetails();
 	}, [params.name]);
 
-
+	  //helper function to handle add recipe to favorite list.
+		function addToFavorite() {
+			return axios.post(`http://localhost:8080/favorite`, {user_id: 1, title: details.title, image: details.image})
+				.then(() => {
+				});
+		}
 
 	return (
 		<div>
@@ -43,6 +48,7 @@ export default function Recipe() {
 				</button>
 				<button
 					className={activeTab === 'ingredients' ? 'active' : ''}
+					onClick={() => addToFavorite()}
 				>
 					Add to favorite
 				</button>
