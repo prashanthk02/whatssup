@@ -1,0 +1,22 @@
+.meal--form {
+  display: flex;
+  margin: 10px 10px 0px 40px;
+  height: 70px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+
+  input {
+    height: 30px;
+    width: 200px;
+    margin: 5px;
+  }
+
+  button {
+    height: 35px;
+    width: 100px;
+    margin: 5px;
+    background-color: rgb(94, 182, 94);
+  }
+}

@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
+import '../styles/mealplan.scss'
+
 export default function MealPlan() {
 	const [calories, setCalories] = useState('');
 
@@ -13,12 +15,13 @@ export default function MealPlan() {
 	};
 
 	return (
-		<div>
+		<div className='meal--form' >
 			<form>
-        <label>Meal Plan </label>
+        <label>Meal Plan for Today: </label>
 				<input
 					type="number"
 					value={calories}
+          placeholder="Calories per day"
 					onChange={e => setCalories(e.target.value)}
 				/>
 			</form>
