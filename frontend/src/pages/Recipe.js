@@ -5,7 +5,7 @@ export default function Recipe() {
 	let params = useParams();
 
 	const [details, setDetails] = useState();
-	const [activeTab, setActiveTab] = useState('instructions');
+	const [activeTab, setActiveTab] = useState('ingredients');
 
 	useEffect(() => {
 		const fetchDetails = async () => {
@@ -14,7 +14,6 @@ export default function Recipe() {
 			);
 			const detailData = await data.json();
 			setDetails(detailData);
-			console.log(detailData);
 		};
 		fetchDetails();
 	}, [params.name]);
@@ -26,18 +25,28 @@ export default function Recipe() {
 				<img src={details?.image} alt="" />
 			</div>
 			<div>
-				<button
-					className={activeTab === 'instructions' ? 'active' : ''}
-					onClick={() => setActiveTab('instructions')}
-				>
-					Instructions
-				</button>
+
 				<button
 					className={activeTab === 'ingredients' ? 'active' : ''}
 					onClick={() => setActiveTab('ingredients')}
 				>
 					Ingredients
 				</button>
+
+				<button
+					className={activeTab === 'instructions' ? 'active' : ''}
+					onClick={() => setActiveTab('instructions')}
+				>
+					Instructions
+				</button>
+
+        {activeTab === 'ingredients' && (
+          <ul>
+            {details?.extendedIngredients.map(ingredient => {
+              return <li key={ingredient.id}>{ingredient.original}</li>;
+            })}
+          </ul>
+        )}
 
 				{activeTab === 'instructions' && (
 					<div>
@@ -47,13 +56,7 @@ export default function Recipe() {
 						></h3>
 					</div>
 				)}
-				{activeTab === 'ingredients' && (
-					<ul>
-						{details?.extendedIngredients.map(ingredient => {
-							return <li key={ingredient.id}>{ingredient.original}</li>;
-						})}
-					</ul>
-				)}
+
 			</div>
 		</div>
 	);
