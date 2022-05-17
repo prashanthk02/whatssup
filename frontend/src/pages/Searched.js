@@ -1,16 +1,20 @@
 import { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
+import axios from 'axios';
 
 export default function Searched() {
 	const [searchedRecipes, setSearchedRecipes] = useState([]);
 	let params = useParams();
 
-	const getSearched = async name => {
-		const data = await fetch(
-			`https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.REACT_APP_API_KEY}&query=${name}`
-		);
-		const recipes = await data.json();
-		setSearchedRecipes(recipes.results);
+	function getSearched(ingredients) {
+		axios.get(
+			`https://api.spoonacular.com/recipes/findByIngredients?apiKey=${process.env.REACT_APP_API_KEY}&ingredients=${ingredients}`
+		)
+    .then((response) => {
+      const recipes = response.data;
+		  setSearchedRecipes(recipes);
+    })
+    .catch(() => {console.log('err')});
 	};
 
 	useEffect(() => {

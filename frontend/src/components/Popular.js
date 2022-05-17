@@ -41,7 +41,8 @@ export default function Popular() {
 						perPage: 6,
 						arrows: false,
 						pagination: false,
-						drag: 'free'
+						drag: 'free',
+            autoplay: true,
 					}}
 				>
 					{popular.map(recipe => {
