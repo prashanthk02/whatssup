@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import axios from "axios";
 
 export default function Recipe() {
 	let params = useParams();
@@ -19,6 +20,8 @@ export default function Recipe() {
 		fetchDetails();
 	}, [params.name]);
 
+
+
 	return (
 		<div>
 			<div>
@@ -37,6 +40,11 @@ export default function Recipe() {
 					onClick={() => setActiveTab('ingredients')}
 				>
 					Ingredients
+				</button>
+				<button
+					className={activeTab === 'ingredients' ? 'active' : ''}
+				>
+					Add to favorite
 				</button>
 
 				{activeTab === 'instructions' && (
