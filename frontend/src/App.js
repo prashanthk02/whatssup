@@ -11,7 +11,7 @@ function App() {
   return (
     <>
       <nav><Navbar /></nav>
-      <header className='app--header'>
+      <header className='app--header'>        
         <div className='app--search'>
           <Search />
           
@@ -27,6 +27,7 @@ function App() {
         <Footer />
       </footer>
     </>
+    
   );
 }
 

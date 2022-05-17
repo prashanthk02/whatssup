@@ -1,17 +1,25 @@
 .app--header {
   min-height: 100vh;
-  background-color: rgba(57, 71, 5, 0.506);
+  width: 100%;
+  background-image: url(./image/background_vegetable_mod.jpeg);
+
 }
+
+
+
 .app--search {
   border: 2px solid black;
-  background-color: rgba(28, 234, 165, 0.465);
+  position: relative;
+  /* background-color: rgba(28, 234, 165, 0.465); */
 }
 
 .pages--div {
+  position: relative;
   display: flex;
   margin-top: 220px;
 }
 
 .category--div {
+  position: relative;
   border: 2px solid black;
 }
