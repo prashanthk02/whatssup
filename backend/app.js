@@ -32,7 +32,7 @@ app.use('/register', registerRouter(db));
 app.use('/new', search_recipes_Router(db));
 app.use('/recipe', recipe_details_Router(db));
 app.use('/recipes', recipesRouter(db));
-app.use('/favorites', favorite_recipes_Router(db));
+app.use('/favorite', favorite_recipes_Router(db));
 
 
 module.exports = app;
