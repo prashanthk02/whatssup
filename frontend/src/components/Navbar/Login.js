@@ -12,6 +12,7 @@ export default function Login(props) {
       <>
         <h5> What's sup {user.name}</h5>
         <button onClick={logout}>Logout</button>
+        <button >MyFavorite</button>
       </>
     )
   } else {

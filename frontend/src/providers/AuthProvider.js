@@ -5,6 +5,7 @@ export const userContext = createContext();
 export default function AuthProvider(props) {
   // initialize state variables
   const [user, setUser] = useState({
+    user_id: "",
     name: "",
     password: "",
     email: "",
@@ -19,13 +20,14 @@ export default function AuthProvider(props) {
     const userData = { email: user.email, password: user.password };
     axios.post("http://localhost:8080/login", userData)
       .then((response) => {
-        setUser(prev => ({ ...prev, name: response.data.name, error: response.data.error, email: user.email, activeUser: true }));
+        setUser(prev => ({ ...prev, user_id: response.data.id, name: response.data.name, error: response.data.error, email: user.email, activeUser: true }));
       });
   };
   // Logout control
   const logout = (event) => {
     event.preventDefault();
     setUser({
+      user_id: "",
       name: "",
       password: "",
       email: "",
