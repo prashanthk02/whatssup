@@ -9,8 +9,17 @@ export default function Cuisine() {
 
 	let params = useParams();
 
+  const { user} = useContext(userContext);
+   // get user's favorite recipes control
+   const getUserFavorite = async (userId) => {
+    if (userId) {
+      axios.get(`http://localhost:8080/favorite/${userId}`)
+      .then((response) => {
+        setFavorites(response.data);
+      });
+    } 
+  };
   
-
 	useEffect(() => {
 		getUserFavorite(params.id);
 	}, [params.id]);
