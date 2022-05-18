@@ -14,7 +14,7 @@ const addRecipe = function (user_id, recipeID, title, image, db) {
 
 //helper function to query database.
 const deleteRecipe = function (recipeID, db) {
-  const queryString = `DELETE from favorites where recipeID = $1`;
+  const queryString = `DELETE  from favorites where recipeID = $1`;
   return db.query(queryString, [recipeID]);
 };
 
@@ -36,7 +36,6 @@ module.exports = (db) => {
         return res.json(result.rows);
       })
   });
-
 
   router.post('/', (req, res) => {
 
