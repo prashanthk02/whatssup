@@ -5,6 +5,7 @@ import Cuisine from './Cuisine';
 import Searched from './Searched';
 import Meal from './Meal';
 import Recipe from './Recipe';
+import Favorites from './Favorites' 
 
 export default function Pages() {
 	let location = useLocation();
@@ -15,6 +16,7 @@ export default function Pages() {
           <Route path="/searched/:search" element={<Searched />} />
           <Route path="/meal/:mealplan" element={<Meal />} />
           <Route path="/recipe/:name" element={<Recipe />} />
+          <Route path="/favorites/:id" element={<Favorites />} />
 			  </Routes>
 	);
 }

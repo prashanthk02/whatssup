@@ -11,18 +11,12 @@ function App() {
   return (
     <>
       <nav><Navbar /></nav>
-      <header className='app--header'>        
-        <div className='category--div'>
-            <Category />
-        </div>
-        <div className='app--search'>
-          <Search />
-          <MealPlan />
-          
-        </div>
+      <header className='app--header'>
+
         <div className='pages--div'>
           <Pages />
         </div>
+        
       </header>
       <footer>
         <Footer />
