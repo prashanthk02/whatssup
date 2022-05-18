@@ -10,24 +10,31 @@
   }
 
   button {
-    height: 40px;
-    width: 125px;
+    height: 50px;
+    width: 200px;
     margin-left: 40px;
     margin-top: 26px;
     background-color: rgb(94, 182, 94);
     border-radius: 6px;
     cursor: pointer;
     gap: 5px;
-    align-items: center;
+    font-size: 20px;
+    text-align: center;
+
+    svg {
+      font-size: 24px;
+    }
   }
 
   .active {
-    background-color: darkgreen;
+    background-color: lime;
+    color: red;
   }
 }
 
 .details--div {
-  border: 2px solid black;
+  border: 1px solid black;
+  border-radius: 5px;
   width: 90vw;
   margin: 20px;
   padding: 20px;

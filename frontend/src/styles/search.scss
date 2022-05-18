@@ -13,7 +13,7 @@
 
   label {
     padding-left: 6px;
-    font-size: 18px;
+    font-size: 24px;
     font-weight: 600;
   }
 
@@ -30,7 +30,8 @@
   height: 40px;
   width: 125px;
   margin: 5px;
-  margin-top: 26px;
+  margin-left: -60px;
+  margin-top: 30px;
   background-color: rgb(94, 182, 94);
   border-radius: 6px;
   cursor: pointer;
@@ -38,4 +39,5 @@
   justify-content: center;
   align-items: center;
   gap: 5px;
+  font-size: 16px;
 }

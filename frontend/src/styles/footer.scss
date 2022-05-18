@@ -1,7 +1,15 @@
 .footer {
   display: flex;
   justify-content: flex-end;
+  align-items: center;
   gap: 10px;
   padding: 10px;
-  background-color: rgba(63, 7, 246, 0.5);
+  background: rgba(214, 242, 6, 0.869);
+  height: 30px;
+  padding-right: 80px;
+
+  .link {
+    text-decoration: none;
+    color: black;
+  }
 }
