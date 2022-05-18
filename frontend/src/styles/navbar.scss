@@ -1,16 +1,33 @@
 .nav {
   display: flex;
   flex-direction: row;
-  border: 1px solid rgb(28, 211, 190);
-  background-image: linear-gradient(to right, rgba(173, 249, 8, 0.691), rgba(63, 7, 246, 0.5));
-  height: 80px;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(68, 93, 19, 0.691);
+  height: 75px;
   width: auto;
-  margin-top: 0;
+  padding-left: 10px;
+  padding-right: 20px;
 }
 
 .nav--title {
   color: rgb(5, 4, 57);
   text-align: left;
   padding-left: 20px;
+  font-family: 'Satisfy', cursive;
   font-size: 30px;
+}
+
+.nav--login_signup button {
+  background: rgba(68, 93, 19, 0.691);
+  font-size: 17px;
+  font-style: italic;
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav--login_signup:hover {
+  background: rgba(161, 207, 68, 0.691);
+  font-weight: bold;  
 }
