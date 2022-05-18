@@ -1,18 +1,30 @@
 import { useContext } from "react"
 import SignUp from "./SignUp";
+import axios from "axios";
 import { userContext } from "../../providers/AuthProvider";
 
 
 export default function Login(props) {
-
   const { user, setUser, logout, onSubmitLoginForm } = useContext(userContext);
+
+   // get user's favorite recipes control
+   const getUserFavorite = async (event) => {
+    event.preventDefault();
+    if (user.user_id) {
+      axios.get(`http://localhost:8080/favorite/${user.user_id}`)
+      .then((response) => {
+        console.log(response.data)
+      });
+    } 
+  };
+
 
   if (user.activeUser && !user.error) {
     return (
       <>
         <h5> What's sup {user.name}</h5>
         <button onClick={logout}>Logout</button>
-        <button >MyFavorite</button>
+        <button onClick={ getUserFavorite } >MyFavorite</button>
       </>
     )
   } else {
