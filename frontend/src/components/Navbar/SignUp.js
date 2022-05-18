@@ -16,7 +16,7 @@ export default function SignUp(props) {
         if (response.data.error) {
           return setUser(prev => ({ ...prev, error: response.data.error, email: "" }));
         }
-        setUser(prev => ({ ...prev, error: response.data.error, email: user.email, activeUser: true }));
+        setUser(prev => ({ ...prev, user_id: response.data.id, error: response.data.error, email: user.email, activeUser: true }));
       });
   };
 

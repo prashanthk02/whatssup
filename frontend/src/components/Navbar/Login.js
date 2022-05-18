@@ -1,30 +1,26 @@
 import { useContext, useEffect } from "react"
-import SignUp from "./SignUp";
-import axios from "axios";
 import { userContext } from "../../providers/AuthProvider";
+import { NavLink, useNavigate } from 'react-router-dom';
 
 
 export default function Login(props) {
-  
-  const { user, setUser, logout, onSubmitLoginForm } = useContext(userContext);
-   // get user's favorite recipes control
-   const getUserFavorite = async (event) => {
-    event.preventDefault();
-    if (user.user_id) {
-      axios.get(`http://localhost:8080/favorite/${user.user_id}`)
-      .then((response) => {
-        console.log(response.data);
-      });
-    } 
-  };
 
+  const { user, setUser, logout, onSubmitLoginForm } = useContext(userContext);
+  
+  const navigate = useNavigate();
+
+  const submitHandler = e => {
+		e.preventDefault();
+		navigate(`/favorites/${user.user_id}`);
+	};
 
   if (user.activeUser && !user.error) {
     return (
       <>
         <h5> What's sup {user.name}</h5>
         <button onClick={logout}>Logout</button>
-        <button onClick={ getUserFavorite } >MyFavorite</button>
+				<button onClick={submitHandler}>MyFavorite</button>
+        
       </>
     )
   } else {
