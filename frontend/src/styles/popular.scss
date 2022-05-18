@@ -1,43 +1,31 @@
 .popular--box {
-  margin-top: 20px;
-  border: 2px solid black;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  width: 100vw;
 
-  h3 {
-    padding-left: 140px;
+  h1 {
+    font-size: 40px;
+    padding-left: 100px;
+  }
+  .link {
+    text-decoration: none;
   }
 }
 
+
+
 .popular--receipe--card {
-  min-height: 25rem;
-	border-radius: 2rem;
-	overflow: hidden;
-	position: relative;true
 
 	img {
-		border-radius: 2rem;
-		position: absolute;
-		left: 0;
-		width: 90%;
-		height: 90%;
-		object-fit: cover;
-    padding-left: 20px;
+    width: 90%;
+    border-radius: 8px;
+    padding: 10px;
 	}
 
 	p {
-		position: absolute;
-		z-index: 10;
-		left: 30%;
-		bottom: 70%;
-		transform: translate(-50%, 0);
-		color: white;
-		width: 90%;
-		text-align: center;
-		font-weight: 600;
-		font-size: 1.5rem;
-		height: 40%;
-		display: flex;
-		justify-content: center;
-		align-items: center;
+    color: rgb(99, 204, 85);
+    text-align: center;
 	}
 }
 

@@ -5,8 +5,8 @@ import React from 'react';
 
 export default function Home() {
 	return (
-		<div className='popular'>
+		<section className='popular'>
 			<Popular />
-		</div>
+		</section>
 	);
 }

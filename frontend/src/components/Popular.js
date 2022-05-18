@@ -35,23 +35,20 @@ export default function Popular() {
 	return (
 		<div>
 			<div className='popular--box' >
-				<h3>Popular recipes</h3>
+				<h1>Popular recipes</h1>
 				<Splide
 					options={{
-						perPage: 6,
-						arrows: false,
-						pagination: false,
-						drag: 'free',
-            autoplay: true,
+            perPage: 4,
+            perMove: 1,
 					}}
 				>
 					{popular.map(recipe => {
 						return (
 							<SplideSlide key={recipe.id}>
 								<div className='popular--receipe--card'>
-									<Link to={`/recipe/${recipe.id}`}>
-										<p>{recipe.title}</p>
+									<Link className='link' to={`/recipe/${recipe.id}`}>
 										<img src={recipe.image} alt={recipe.title} />
+										<p>{recipe.title}</p>
 									</Link>
 								</div>
 							</SplideSlide>
