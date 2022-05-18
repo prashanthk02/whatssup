@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import axios from "axios";
 
 export default function Recipe() {
 	let params = useParams();
@@ -18,6 +19,13 @@ export default function Recipe() {
 		fetchDetails();
 	}, [params.name]);
 
+	  //helper function to handle add recipe to favorite list.
+		function addToFavorite() {
+			return axios.post(`http://localhost:8080/favorite`, {user_id: 1, id: params.name, title: details.title, image: details.image})
+				.then(() => {
+				});
+		}
+
 	return (
 		<div>
 			<div>
@@ -31,6 +39,11 @@ export default function Recipe() {
 					onClick={() => setActiveTab('ingredients')}
 				>
 					Ingredients
+				</button>
+				<button
+					onClick={() => addToFavorite()}
+				>
+					Add to favorite
 				</button>
 
 				<button

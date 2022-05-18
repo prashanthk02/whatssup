@@ -15,6 +15,7 @@ const registerRouter = require('./routes/register');
 const search_recipes_Router = require('./routes/search_recipes');
 const recipe_details_Router = require('./routes/recipe_details');
 const recipesRouter = require('./routes/recipes');
+const favorite_recipes_Router = require('./routes/favorite_recipes')
 
 const app = express();
 app.use(logger('dev'));
@@ -31,6 +32,7 @@ app.use('/register', registerRouter(db));
 app.use('/new', search_recipes_Router(db));
 app.use('/recipe', recipe_details_Router(db));
 app.use('/recipes', recipesRouter(db));
+app.use('/favorite', favorite_recipes_Router(db));
 
 
 module.exports = app;
