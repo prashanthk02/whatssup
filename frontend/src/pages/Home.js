@@ -1,5 +1,4 @@
 import Popular from '../components/Popular';
-import '../styles/home.scss'
 
 import React from 'react';
 

@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 
+import '../styles/page.scss'
+
 export default function Cuisine() {
 	const [cuisine, setCuisine] = useState([]);
 
@@ -16,15 +18,14 @@ export default function Cuisine() {
 
 	useEffect(() => {
 		getCuisine(params.type);
-		console.log(params.type);
 	}, [params.type]);
 
 	return (
-		<div>
+		<div className='result--items' >
 			{cuisine.map(recipe => {
 				return (
-					<div key={recipe.id}>
-						<Link to={`/recipe/${recipe.id}`}>
+					<div className='result--card' key={recipe.id}>
+						<Link className='link' to={`/recipe/${recipe.id}`}>
 							<img src={recipe.image} alt={recipe.title} />
 							<h4>{recipe.title}</h4>
 						</Link>

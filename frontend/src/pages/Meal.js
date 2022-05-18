@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import axios from 'axios';
 
+import '../styles/page.scss'
+
 export default function Meal() {
 	const [meal, setMeal] = useState([]);
 
@@ -23,14 +25,14 @@ export default function Meal() {
 	}, [params.mealplan]);
 
 	return (
-		<div>
+		<div className='result--items' >
 			{meal.map(recipe => {
 				return (
-        <div key={recipe.id}>
-					<Link to={`/recipe/${recipe.id}`}>
+        <div className='result--card' key={recipe.id}>
+					<Link className='link' to={`/recipe/${recipe.id}`}>
 							<h4>{recipe.title}</h4>
               <p>Number of servings: {recipe.servings}</p>
-              <p>Preparation time: {recipe.readyInMinutes}</p>
+              <p>Preparation time: {recipe.readyInMinutes} Minutes</p>
 					</Link>
         </div>
 				);

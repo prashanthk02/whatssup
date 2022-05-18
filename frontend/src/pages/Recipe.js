@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import '../styles/recipe.scss'
 
 export default function Recipe() {
 	let params = useParams();
