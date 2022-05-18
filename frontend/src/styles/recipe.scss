@@ -1,0 +1,41 @@
+.details {
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  img {
+    border-radius: 5px;
+    text-align: center;
+  }
+
+  button {
+    height: 40px;
+    width: 125px;
+    margin-left: 40px;
+    margin-top: 26px;
+    background-color: rgb(94, 182, 94);
+    border-radius: 6px;
+    cursor: pointer;
+    gap: 5px;
+    align-items: center;
+  }
+
+  .active {
+    background-color: darkgreen;
+  }
+}
+
+.details--div {
+  border: 2px solid black;
+  width: 90vw;
+  margin: 20px;
+  padding: 20px;
+  background-color: rgba(126, 195, 126, 0.636);
+
+  li {
+    font-size: 20px;
+    padding: 5px;
+    font-weight: 600;
+  }
+}

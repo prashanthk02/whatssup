@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { RiSearch2Fill } from 'react-icons/ri'
+import { FaSearch } from 'react-icons/fa'
 
 import '../styles/search.scss'
 
@@ -22,7 +22,7 @@ export default function Search() {
       </form>
       <button type="button" className="search--btn" onClick={submitHandler}>
         Find Recipe
-        <RiSearch2Fill />
+        <FaSearch />
       </button>
     </div>
 	);

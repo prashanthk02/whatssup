@@ -20,7 +20,7 @@ export default function Recipe() {
 	}, [params.name]);
 
 	return (
-		<div>
+		<div className='details' >
 			<div>
 				<h2>{details?.title}</h2>
 				<img src={details?.image} alt="" />
@@ -41,22 +41,24 @@ export default function Recipe() {
 					Instructions
 				</button>
 
-        {activeTab === 'ingredients' && (
-          <ul>
-            {details?.extendedIngredients.map(ingredient => {
-              return <li key={ingredient.id}>{ingredient.original}</li>;
-            })}
-          </ul>
-        )}
+        <div className='details--div' >
+          {activeTab === 'ingredients' && (
+            <ul>
+              {details?.extendedIngredients.map(ingredient => {
+                return <li key={ingredient.id}>{ingredient.original}</li>;
+              })}
+            </ul>
+          )}
 
-				{activeTab === 'instructions' && (
-					<div>
-						<h3 dangerouslySetInnerHTML={{ __html: details?.summary }}></h3>
-						<h3
-							dangerouslySetInnerHTML={{ __html: details?.instructions }}
-						></h3>
-					</div>
-				)}
+          {activeTab === 'instructions' && (
+            <div>
+              <h4 dangerouslySetInnerHTML={{ __html: details?.summary }}></h4>
+              <h3
+                dangerouslySetInnerHTML={{ __html: details?.instructions }}
+              ></h3>
+            </div>
+          )}
+        </div>
 
 			</div>
 		</div>

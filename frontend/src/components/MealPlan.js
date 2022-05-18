@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { RiSearch2Fill } from 'react-icons/ri'
+import { FaSearch } from 'react-icons/fa'
 
 import '../styles/mealplan.scss'
 
@@ -27,7 +27,7 @@ export default function MealPlan() {
 			</form>
       <button onClick={submitHandler}>
         Get Meals
-        <RiSearch2Fill />
+        <FaSearch />
       </button>
 		</div>
 	);
