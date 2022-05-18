@@ -16,6 +16,16 @@
 
 
 .popular--receipe--card {
+  text-align: center;
+  margin: 10px;
+  background: linear-gradient(25deg, rgb(114, 147, 114), rgb(187, 242, 69) );
+  border-radius: 5px;
+  height: 100%;
+
+  &:hover {
+    background: linear-gradient(115deg, rgb(114, 147, 114), rgb(187, 242, 69) );
+    box-shadow: 2px 2px rgb(8, 22, 1);
+}
 
 	img {
     width: 90%;
@@ -24,8 +34,10 @@
 	}
 
 	p {
-    color: rgb(99, 204, 85);
+    color: white;
     text-align: center;
+    font-size: 18px;
+    font-weight: 600;
 	}
 }
 

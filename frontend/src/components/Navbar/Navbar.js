@@ -9,7 +9,7 @@ export default function Navbar() {
   const [mode, setMode] = useState("")
   return (
     <div className="nav">
-      <NavLink to={'/'}>
+      <NavLink className="link" to={'/'}>
         <h2 className="nav--title"> What's Supp? </h2>
       </NavLink>
       {mode === "" && <button onClick={() => setMode("SignIn")}>Login</button>}

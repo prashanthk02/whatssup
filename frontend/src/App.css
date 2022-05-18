@@ -2,6 +2,13 @@
   min-height: 100vh;
   width: 100%;
   background-image: url(./image/background_vegetable_mod.jpeg);
+  background-position: 75% 95%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-color: rgba(200, 200, 200, 0.5);
+  background-blend-mode: lighten;
+  
 }
 
 
@@ -21,5 +28,5 @@
 
 .category--div {
   position: relative;
-  border: 1px solid rgba(0, 0, 0, 0.099);
+  padding: 10px;
 }

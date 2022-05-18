@@ -7,9 +7,14 @@
 
 .result--card {
   text-align: center;
-  margin: 5px;
-  background-color: rgba(126, 195, 126, 0.636);
+  margin: 20px;
+  background: linear-gradient(25deg, rgb(114, 147, 114), rgb(187, 242, 69) );
   border-radius: 5px;
+
+  &:hover {
+    background: linear-gradient(115deg, rgb(114, 147, 114), rgb(187, 242, 69) );
+    box-shadow: 2px 2px rgb(8, 22, 1);
+}
 
   img {
     width: 90%;
@@ -17,11 +22,15 @@
     margin-top: 15px;
   
     &:hover {
-    box-shadow: 6px 6px limegreen;
+    box-shadow: 5px 5px rgb(114, 147, 114);
   }
   }
 
   .link {
     text-decoration: none;
+  }
+
+  h4 {
+    color: white;
   }
 }

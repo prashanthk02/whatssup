@@ -1,13 +1,18 @@
 import React from "react";
+import { Link } from 'react-router-dom'
 
 import "../../styles/footer.scss"
 
 export default function Footer() {
   return (
     <div className="footer">
-      <h4>Home</h4>
-      <h4>About</h4>
-      <h4>Contact</h4>
+      <h3>
+        <Link className="link" to={'/'}>
+          Home
+        </Link>
+      </h3>
+      <h3>About</h3>
+      <h3>Contact</h3>
     </div>
   );
 }
