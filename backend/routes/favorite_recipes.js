@@ -2,20 +2,20 @@ const router = require('express').Router();
 
 
 //helper function to query database.
-const addRecipe = function (user_id, title, image, db) {
+const addRecipe = function (user_id, recipeID, title, image, db) {
   const queryString = `INSERT INTO favorites(user_id, title, image)
-    VALUES ($1, $2, $3) RETURNING *`;
+    VALUES ($1, $2, $3, $4) RETURNING *`;
 
-  return db.query(queryString, [user_id,  title, image])
+  return db.query(queryString, [user_id, recipeID, title, image])
     .then((result) => {
       return result.rows[0];
     });
 };
 
 //helper function to query database.
-const deleteRecipe = function (user_id, db) {
-  const queryString = `DELETE from favorites where user_id = $1;`;
-  return db.query(queryString, [user_id]);
+const deleteRecipe = function (recipeID, db) {
+  const queryString = `DELETE from favorites where recipeID = $1;`;
+  return db.query(queryString, [recipeID]);
 };
 
 module.exports = (db) => {
@@ -32,10 +32,10 @@ module.exports = (db) => {
 
     const recipe = req.body;
 
-    if (!recipe.user_id  || !recipe.title || !recipe.image) {
+    if (!recipe.user_id || !recipe.id || !recipe.title || !recipe.image) {
       return res.json({ error: "More information needed" });
     }
-    addRecipe(recipe.user_id, recipe.title, recipe.image, db)
+    addRecipe(recipe.user_id, recipe.id, recipe.title, recipe.image, db)
       .then(result => {
         return res.json(result);
       })
@@ -46,12 +46,12 @@ module.exports = (db) => {
 
   router.delete('/:id', (req, res) => {
 
-    const user_id = req.params.id;
+    const recipeID = req.params.id;
 
     if (!user_id ) {
       return res.json({ error: "More information needed" });
     }
-    deleteRecipe(user_id, db)
+    deleteRecipe(recipeID, db)
       .then(result => {
         return res.json({ message: "Succefully deleted recipe from favorite" });
       })
