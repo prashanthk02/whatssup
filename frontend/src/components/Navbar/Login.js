@@ -1,19 +1,19 @@
-import { useContext } from "react"
+import { useContext, useEffect } from "react"
 import SignUp from "./SignUp";
 import axios from "axios";
 import { userContext } from "../../providers/AuthProvider";
 
 
 export default function Login(props) {
+  
   const { user, setUser, logout, onSubmitLoginForm } = useContext(userContext);
-
    // get user's favorite recipes control
    const getUserFavorite = async (event) => {
     event.preventDefault();
     if (user.user_id) {
       axios.get(`http://localhost:8080/favorite/${user.user_id}`)
       .then((response) => {
-        console.log(response.data)
+        console.log(response.data);
       });
     } 
   };
@@ -46,9 +46,8 @@ export default function Login(props) {
           />
           <button>Login</button>
           {props.mode != "SignUp" && <button onClick={() => props.setMode("SignUp")}>SignUp</button>}
-          <h6>{user.error}</h6>
         </form>
-        {props.mode == "SignUp" && <SignUp user={user} setUser={setUser} mode={props.mode} setMode={props.setMode}></SignUp>}
+        <h6>{user.error}</h6>
       </>
     )
   }
