@@ -1,9 +1,12 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useContext } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from "axios";
+import {userContext} from '../providers/AuthProvider';
 
 export default function Recipe() {
 	let params = useParams();
+	const { user } = useContext(userContext);
+	console.log("user is here:", user)
 
 	const [details, setDetails] = useState();
 	const [activeTab, setActiveTab] = useState('ingredients');

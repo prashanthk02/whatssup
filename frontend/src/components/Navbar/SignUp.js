@@ -34,6 +34,7 @@ export default function SignUp(props) {
         <input
           type="password"
           className="form-control"
+          autoComplete="on"
           placeholder="enter password"
           onChange={e => (props.setState(prev => ({ ...prev, password: e.target.value })))}
         />
