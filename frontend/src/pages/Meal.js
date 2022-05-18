@@ -25,18 +25,23 @@ export default function Meal() {
 	}, [params.mealplan]);
 
 	return (
-		<div className='result--items' >
-			{meal.map(recipe => {
-				return (
-        <div className='result--card' key={recipe.id}>
-					<Link className='link' to={`/recipe/${recipe.id}`}>
-							<h4>{recipe.title}</h4>
-              <p>Number of servings: {recipe.servings}</p>
-              <p>Preparation time: {recipe.readyInMinutes} Minutes</p>
-					</Link>
-        </div>
-				);
-			})}
-		</div>
+    <div>
+      <h1 className='result--title'> Meal plan for {params.mealplan} calories </h1>
+
+      <div className='result--items' >
+        {meal.map(recipe => {
+          return (
+          <div className='result--card' key={recipe.id}>
+            <Link className='link' to={`/recipe/${recipe.id}`}>
+                <h4>{recipe.title}</h4>
+                <p>Number of servings: {recipe.servings}</p>
+                <p>Preparation time: {recipe.readyInMinutes} Minutes</p>
+            </Link>
+          </div>
+          );
+        })}
+      </div>
+
+    </div>
 	);
 }

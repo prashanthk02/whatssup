@@ -24,17 +24,22 @@ export default function Searched() {
 	}, [params.search]);
 
 	return (
-		<div className='result--items' >
-			{searchedRecipes.map(recipe => {
-				return (
-          <div className='result--card' key={recipe.id}>
-					  <Link className='link' to={`/recipe/${recipe.id}`}>
-							<img src={recipe.image} alt={recipe.title} />
-							<h4>{recipe.title}</h4>
-					  </Link>
-					</div>
-				);
-			})}
-		</div>
+    <div>
+      <h1 className='result--title'> Recipes based on {params.search}</h1>
+
+      <div className='result--items' >
+        {searchedRecipes.map(recipe => {
+          return (
+            <div className='result--card' key={recipe.id}>
+              <Link className='link' to={`/recipe/${recipe.id}`}>
+                <img src={recipe.image} alt={recipe.title} />
+                <h4>{recipe.title}</h4>
+              </Link>
+            </div>
+          );
+        })}
+      </div>
+
+    </div>
 	);
 }

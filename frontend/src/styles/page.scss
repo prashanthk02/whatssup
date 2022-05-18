@@ -1,5 +1,5 @@
 .result--items {
-  width: 100vw;
+  width: 99vw;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   padding: 10px;
@@ -8,6 +8,7 @@
 .result--card {
   text-align: center;
   margin: 20px;
+  padding: 5px;
   background: linear-gradient(25deg, rgb(114, 147, 114), rgb(187, 242, 69) );
   border-radius: 5px;
 
@@ -33,4 +34,8 @@
   h4 {
     color: white;
   }
+}
+
+.result--title {
+  padding: 20px;
 }
