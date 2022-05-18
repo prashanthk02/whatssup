@@ -1,49 +1,61 @@
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import { GiCookingPot, GiCutLemon, GiHotSpices, GiChopsticks, GiSushis, GiCroissant, GiCheeseWedge, GiCampCookingPot } from 'react-icons/gi';
+import { FaPizzaSlice, FaHamburger } from 'react-icons/fa'
 
 import '../styles/category.scss'
 
 export default function Category() {
 	return (
 		<div className='categories'>
-			<NavLink to="/cuisine/African">
+			<Link to="/cuisine/African" className='link'>
+        <GiCookingPot />
 				<h4>African</h4>
-			</NavLink>
+			</Link>
 
-			<NavLink to="/cuisine/American">
+			<Link to="/cuisine/American" className='link'>
+        <FaHamburger />
 				<h4>American</h4>
-			</NavLink>
+			</Link>
 
-			<NavLink to="/cuisine/Chinese">
+			<Link to="/cuisine/Chinese" className='link'>
+        <GiChopsticks />
 				<h4>Chinese</h4>
-			</NavLink>
+			</Link>
 
-			<NavLink to="/cuisine/French">
+			<Link to="/cuisine/French" className='link'>
+        <GiCroissant />
 				<h4>French</h4>
-			</NavLink>
+			</Link>
 
-      <NavLink to="/cuisine/Greek">
+      <Link to="/cuisine/Greek" className='link'>
+        <GiCheeseWedge />
 				<h4>Greek</h4>
-			</NavLink>
+			</Link>
 
-      <NavLink to="/cuisine/Indian">
+      <Link to="/cuisine/Indian" className='link'>
+        <GiHotSpices />
 				<h4>Indian</h4>
-			</NavLink>
+			</Link>
 
-      <NavLink to="/cuisine/Italian">
+      <Link to="/cuisine/Italian" className='link'>
+        <FaPizzaSlice />
 				<h4>Italian</h4>
-			</NavLink>
+			</Link>
 
-      <NavLink to="/cuisine/Mexican">
+      <Link to="/cuisine/Mexican" className='link'>
+        <GiCutLemon />
 				<h4>Mexican</h4>
-			</NavLink>
+			</Link>
 
-      <NavLink to="/cuisine/Japanese">
+      <Link to="/cuisine/Japanese" className='link'>
+        <GiSushis />
 				<h4>Japanese</h4>
-			</NavLink>
+			</Link>
 
-      <NavLink to="/cuisine/Thai">
+      <Link to="/cuisine/Thai" className='link'>
+        <GiCampCookingPot />
 				<h4>Thai</h4>
-			</NavLink>
+			</Link>
 		</div>
 	);
 }

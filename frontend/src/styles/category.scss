@@ -3,4 +3,31 @@
 	justify-content: center;
 	margin: 1rem 0;
   gap: 15px;
+  
+  h4 {
+    color: white;
+  }
+
+  .link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid darkgreen;
+    border-radius: 50%;
+    width: 100px;
+    background: linear-gradient(25deg, rgb(114, 147, 114), rgb(187, 242, 69) );
+    text-decoration: none;
+
+    &:hover {
+      background: linear-gradient(115deg, rgb(114, 147, 114), rgb(187, 242, 69) );
+      box-shadow: 2px 2px rgb(8, 22, 1);
+      border-radius: 30%;
+    }
+  }
+
+  svg {
+    margin-top: 10px;
+    font-size: 2rem;
+    color: rgb(38, 78, 7);
+  } 
 }

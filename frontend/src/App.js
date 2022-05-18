@@ -12,13 +12,13 @@ function App() {
     <>
       <nav><Navbar /></nav>
       <header className='app--header'>        
+        <div className='category--div'>
+            <Category />
+        </div>
         <div className='app--search'>
           <Search />
           <MealPlan />
           
-        </div>
-        <div className='category--div'>
-            <Category />
         </div>
         <div className='pages--div'>
           <Pages />
