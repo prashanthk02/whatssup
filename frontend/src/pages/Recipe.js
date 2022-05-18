@@ -22,7 +22,7 @@ export default function Recipe() {
 
 	  //helper function to handle add recipe to favorite list.
 		function addToFavorite() {
-			return axios.post(`http://localhost:8080/favorite`, {user_id: 1, recipeID: params.name, title: details.title, image: details.image})
+			return axios.post(`http://localhost:8080/favorite`, {user_id: 1, id: params.name, title: details.title, image: details.image})
 				.then(() => {
 				});
 		}

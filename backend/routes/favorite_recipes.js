@@ -3,7 +3,7 @@ const router = require('express').Router();
 
 //helper function to query database.
 const addRecipe = function (user_id, recipeID, title, image, db) {
-  const queryString = `INSERT INTO favorites(user_id, title, image)
+  const queryString = `INSERT INTO favorites(user_id, recipeID, title, image)
     VALUES ($1, $2, $3, $4) RETURNING *`;
 
   return db.query(queryString, [user_id, recipeID, title, image])
@@ -14,7 +14,7 @@ const addRecipe = function (user_id, recipeID, title, image, db) {
 
 //helper function to query database.
 const deleteRecipe = function (recipeID, db) {
-  const queryString = `DELETE from favorites where recipeID = $1;`;
+  const queryString = `DELETE from favorites where recipeID = $1`;
   return db.query(queryString, [recipeID]);
 };
 
@@ -27,6 +27,16 @@ module.exports = (db) => {
         return res.json(result.rows);
       })
   });
+
+  router.get('/:id', (req, res) => {
+    const user_id = req.params.id;
+    return db
+      .query(`SELECT * FROM favorites where user_id = $1`, [user_id])
+      .then((result) => {
+        return res.json(result.rows);
+      })
+  });
+
 
   router.post('/', (req, res) => {
 
@@ -48,7 +58,7 @@ module.exports = (db) => {
 
     const recipeID = req.params.id;
 
-    if (!user_id ) {
+    if (!recipeID ) {
       return res.json({ error: "More information needed" });
     }
     deleteRecipe(recipeID, db)
