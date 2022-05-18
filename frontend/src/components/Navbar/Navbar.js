@@ -12,9 +12,9 @@ export default function Navbar() {
       <NavLink className="link" to={'/'}>
         <h2 className="nav--title"> What's Supp? </h2>
       </NavLink>
-      {mode === "" && <button onClick={() => setMode("SignIn")}>Login</button>}
-      {mode === "" && <button onClick={() => setMode("SignUp")}>Sign up</button>}
-      {(mode === "SignIn" || mode === "SignUp") && <Login mode={mode} setMode={setMode}/>}
+        {mode === "" && <button onClick={() => setMode("SignIn")}>Login</button>}
+        {mode === "" && <button onClick={() => setMode("SignUp")}>Sign up</button>}
+        {(mode === "SignIn" || mode === "SignUp") && <Login mode={mode} setMode={setMode}/>}
     </div>
   );
 }
