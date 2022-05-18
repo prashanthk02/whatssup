@@ -1,13 +1,15 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useContext } from 'react';
 import { useParams } from 'react-router-dom';
 import '../styles/recipe.scss'
 import axios from "axios";
 import { GiCoolSpices } from 'react-icons/gi'
 import { BiMessageDetail } from 'react-icons/bi'
 import { BsBookmarkStar } from 'react-icons/bs'
+import {userContext} from '../providers/AuthProvider';
 
 export default function Recipe() {
 	let params = useParams();
+	const { user } = useContext(userContext);
 
 	const [details, setDetails] = useState();
 	const [activeTab, setActiveTab] = useState('ingredients');
@@ -25,7 +27,7 @@ export default function Recipe() {
 
 	  //helper function to handle add recipe to favorite list.
 		function addToFavorite() {
-			return axios.post(`http://localhost:8080/favorite`, {user_id: 1, id: params.name, title: details.title, image: details.image})
+			return axios.post(`http://localhost:8080/favorite`, {user_id: user.user_id, id: params.name, title: details.title, image: details.image})
 				.then(() => {
 				});
 		}
