@@ -13,7 +13,7 @@ export default function AuthProvider(props) {
     mode: ""
   });
 
-  // login logic
+  // login control
   const onSubmitLoginForm = async (event) => {
     event.preventDefault();
     const userData = { email: user.email, password: user.password };
@@ -22,7 +22,7 @@ export default function AuthProvider(props) {
         setUser(prev => ({ ...prev, name: response.data.name, error: response.data.error, email: user.email, activeUser: true }));
       });
   };
-  // Logout logic
+  // Logout control
   const logout = (event) => {
     event.preventDefault();
     setUser({

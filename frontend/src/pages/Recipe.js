@@ -6,7 +6,6 @@ import {userContext} from '../providers/AuthProvider';
 export default function Recipe() {
 	let params = useParams();
 	const { user } = useContext(userContext);
-	console.log("user is here:", user)
 
 	const [details, setDetails] = useState();
 	const [activeTab, setActiveTab] = useState('ingredients');
@@ -24,7 +23,7 @@ export default function Recipe() {
 
 	  //helper function to handle add recipe to favorite list.
 		function addToFavorite() {
-			return axios.post(`http://localhost:8080/favorite`, {user_id: 1, id: params.name, title: details.title, image: details.image})
+			return axios.post(`http://localhost:8080/favorite`, {user_email: user.email, id: params.name, title: details.title, image: details.image})
 				.then(() => {
 				});
 		}
