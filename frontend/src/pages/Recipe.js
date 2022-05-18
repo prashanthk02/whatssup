@@ -2,6 +2,9 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import '../styles/recipe.scss'
 import axios from "axios";
+import { GiCoolSpices } from 'react-icons/gi'
+import { BiMessageDetail } from 'react-icons/bi'
+import { BsBookmarkStar } from 'react-icons/bs'
 
 export default function Recipe() {
 	let params = useParams();
@@ -39,19 +42,20 @@ export default function Recipe() {
 					className={activeTab === 'ingredients' ? 'active' : ''}
 					onClick={() => setActiveTab('ingredients')}
 				>
-					Ingredients
-				</button>
-				<button
-					onClick={() => addToFavorite()}
-				>
-					Add to favorite
+					Ingredients <GiCoolSpices />
 				</button>
 
 				<button
 					className={activeTab === 'instructions' ? 'active' : ''}
 					onClick={() => setActiveTab('instructions')}
 				>
-					Instructions
+					Instructions <BiMessageDetail />
+				</button>
+
+				<button
+					onClick={() => addToFavorite()}
+				>
+					Add to favorites <BsBookmarkStar />
 				</button>
 
         <div className='details--div' >
