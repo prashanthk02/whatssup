@@ -3,6 +3,7 @@ DROP TABLE IF EXISTS favorites CASCADE;
 CREATE TABLE favorites (
   id SERIAL PRIMARY KEY NOT NULL,
   user_id INTEGER REFERENCES users(id) NOT NULL,
+  recipeID INTEGER NOT NULL, 
   title VARCHAR(255),
   image VARCHAR(255)
 );
