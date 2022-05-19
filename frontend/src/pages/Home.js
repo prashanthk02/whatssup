@@ -5,7 +5,7 @@ import Search from '../components/Search';
 import MealPlan from '../components/MealPlan';
 import Category from '../components/Category';
 
-import Jokes from './Jokes';
+import Facts from './Facts';
 
 import '../styles/home.scss'
 
@@ -14,8 +14,8 @@ export default function Home() {
 	return (
 		<div className='home'>
 
-      <div className='joke--btn'>
-      <Jokes />
+      <div className='fact--btn'>
+      <Facts />
       </div>
 
       <div className='category--div'>

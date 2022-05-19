@@ -1,21 +1,21 @@
-import '../styles/joke.scss'
+import '../styles/fact.scss'
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 
-export default function Joke({ setOpenModal }) {
-  const[joke, setJoke] = useState('')
+export default function Fact({ setOpenModal }) {
+  const[fact, setFact] = useState('')
 
-  function getJoke() {
+  function getFact() {
     axios.get(`https://api.spoonacular.com/food/trivia/random?apiKey=${process.env.REACT_APP_API_KEY}`)
     .then((response) => {
-      const joke = response.data.text;
-      setJoke(joke);
+      const fact = response.data.text;
+      setFact(fact);
     })
     .catch(() => {console.log('err')});
   };
 
   useEffect(() =>{
-    getJoke();
+    getFact();
   }, [])
 
   return (
@@ -35,7 +35,7 @@ export default function Joke({ setOpenModal }) {
         </div>
 
         <div className="body">
-          <p>{joke}</p>
+          <p>{fact}</p>
         </div>
 
       </div>

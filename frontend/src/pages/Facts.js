@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { RiChatSmile3Fill } from 'react-icons/ri'
-import Joke from "../components/Joke";
-import '../styles/joke.scss'
+import Fact from "../components/Fact";
+import '../styles/fact.scss'
 
-export default function Jokes() {
+export default function Facts() {
   const [modalOpen, setModalOpen] = useState(false);
 
   return (
@@ -17,7 +17,7 @@ export default function Jokes() {
         <RiChatSmile3Fill />
       </button>
 
-      {modalOpen && <Joke setOpenModal={setModalOpen} />}
+      {modalOpen && <Fact setOpenModal={setModalOpen} />}
     </div>
   );
 }

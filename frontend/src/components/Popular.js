@@ -20,7 +20,7 @@ export default function Popular() {
 		} else {
 			try {
 				const api = await fetch(
-					`https://api.spoonacular.com/recipes/random?apiKey=${process.env.REACT_APP_API_KEY}&number=8`
+					`https://api.spoonacular.com/recipes/random?apiKey=${process.env.REACT_APP_API_KEY}&number=12`
 				);
 				const data = await api.json();
 
