@@ -9,14 +9,13 @@ export default function SignUp() {
 
   const onSubmitSignUpForm = async (event) => {
     event.preventDefault();
-    setUser(prev => ({ ...prev, mode: "SignIn"}))
     const userData = { name: user.name, email: user.email, password: user.password };
     axios.post("http://localhost:8080/register", userData)
       .then((response) => {
         if (response.data.error) {
-          return setUser(prev => ({ ...prev, error: response.data.error, email: "" }));
+          return setUser(prev => ({ ...prev, error: response.data.error, email: "", activeUser: false }));
         }
-        setUser(prev => ({ ...prev, user_id: response.data.id, error: response.data.error, email: user.email, activeUser: true }));
+        setUser(prev => ({ ...prev, error: response.data.error, user_id: response.data.id, email: user.email, activeUser: true, mode: "SignIn"}));
       });
   };
 

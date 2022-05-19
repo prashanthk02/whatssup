@@ -23,7 +23,7 @@ export default function AuthProvider(props) {
     const userData = { email: user.email, password: user.password };
     axios.post("http://localhost:8080/login", userData)
       .then((response) => {
-        setUser(prev => ({ ...prev, user_id: response.data.id, name: response.data.name, error: response.data.error, email: user.email, activeUser: true }));
+        setUser(prev => ({ ...prev, error: response.data.error, mode: "SignIn", user_id: response.data.id, name: response.data.name, email: user.email, activeUser: true }));
       });
   };
   // Logout control
@@ -35,7 +35,8 @@ export default function AuthProvider(props) {
       password: "",
       email: "",
       activeUser: false,
-      error: ""
+      error: "",
+      mode: ""
     });
     navigate("/");
   }
