@@ -3,7 +3,7 @@ import { userContext } from "../../providers/AuthProvider";
 import { useNavigate } from 'react-router-dom';
 
 
-export default function Login(props) {
+export default function Login() {
 
   const { user, setUser, logout, onSubmitLoginForm } = useContext(userContext);
 
@@ -41,7 +41,7 @@ export default function Login(props) {
             onChange={e => (setUser(prev => ({ ...prev, password: e.target.value })))}
           />
           <button>Login</button>
-          {props.mode !== "SignUp" && <button onClick={() => props.setMode("SignUp")}>SignUp</button>}
+          {user.mode !== "SignUp" && <button onClick={() => (setUser(prev => ({ ...prev, mode: "SignUp"})))}>SignUp</button>}
         </form>
         <h6>{user.error}</h6>
       </>
