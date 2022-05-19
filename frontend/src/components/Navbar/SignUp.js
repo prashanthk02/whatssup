@@ -1,15 +1,15 @@
-import { useContext, useEffect } from "react"
+import { useContext } from "react"
 import axios from "axios";
 import { userContext } from "../../providers/AuthProvider";
 
 
-export default function SignUp(props) {
+export default function SignUp() {
 
   const { user, setUser } = useContext(userContext);
 
   const onSubmitSignUpForm = async (event) => {
     event.preventDefault();
-    props.setMode("SignIn")
+    setUser(prev => ({ ...prev, mode: "SignIn"}))
     const userData = { name: user.name, email: user.email, password: user.password };
     axios.post("http://localhost:8080/register", userData)
       .then((response) => {
