@@ -21,10 +21,10 @@ export default function Navbar() {
         <HiHome />
       </Link>
       
-      {user.mode === "" && <button onClick={() => setUser(prev => ({ ...prev, mode: "SignIn"}))}>Login</button>}
-      {user.mode === "" && <button onClick={() => setUser(prev => ({ ...prev, mode: "SignUp"}))}>Sign up</button>}
+      {user.activeUser === false && user.mode === "" && <button onClick={() => setUser(prev => ({ ...prev, mode: "SignIn"}))}>Login</button>}
+      {user.activeUser === false && user.mode === "" && <button onClick={() => setUser(prev => ({ ...prev, mode: "SignUp"}))}>Sign up</button>}
       {(user.mode === "SignIn" || user.mode === "SignUp") && <Login />}
-      {( user.mode === "SignUp") && <SignUp  />}
+      { user.mode !== "SignIn" && user.mode === "SignUp" && <SignUp  />}
     </div>
   );
 }
