@@ -33,9 +33,10 @@ export default function Meal() {
           return (
           <div className='result--card' key={recipe.id}>
             <Link className='link' to={`/recipe/${recipe.id}`}>
-                <h4>{recipe.title}</h4>
-                <p>Number of servings: {recipe.servings}</p>
-                <p>Preparation time: {recipe.readyInMinutes} Minutes</p>
+              <img src={(`https://spoonacular.com/recipeImages/${recipe.id}-480x360.jpg`)} alt={recipe.title} />
+              <h4>{recipe.title}</h4>
+              <p>Number of servings: {recipe.servings}</p>
+              <p>Preparation time: {recipe.readyInMinutes} Minutes</p>
             </Link>
           </div>
           );

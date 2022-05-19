@@ -12,6 +12,15 @@
   .link {
     text-decoration: none;
   }
+
+  svg {
+    font-size: 28px;
+    color: rgb(5, 4, 57);
+
+    &:hover {
+      color: white;
+    }
+  }
 }
 
 .nav--title {

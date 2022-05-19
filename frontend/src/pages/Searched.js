@@ -10,7 +10,7 @@ export default function Searched() {
 
 	function getSearched(ingredients) {
 		axios.get(
-			`https://api.spoonacular.com/recipes/findByIngredients?apiKey=${process.env.REACT_APP_API_KEY}&ingredients=${ingredients}`
+			`https://api.spoonacular.com/recipes/findByIngredients?apiKey=${process.env.REACT_APP_API_KEY}&ingredients=${ingredients}&number=18`
 		)
     .then((response) => {
       const recipes = response.data;

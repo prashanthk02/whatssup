@@ -26,7 +26,7 @@ export default function MealPlan() {
 				/>
 			</form>
       <button onClick={submitHandler}>
-        Get Meals
+        Meal Plan
         <FaSearch />
       </button>
 		</div>
