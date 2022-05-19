@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
+import '../styles/recipe.scss';
 import { Link, useParams } from 'react-router-dom';
 import axios from "axios";
-
+import { BsTrashFill } from 'react-icons/bs';
 
 export default function Cuisine() {
 	const [favorites, setFavorites] = useState([]);
@@ -35,13 +36,13 @@ export default function Cuisine() {
 		<div>
 			{favorites.map(recipe => {
 				return (
-					<div key={recipe.id}>
+					<div key={recipe.id} className="favorites" >
 						<Link to={`/recipe/${recipe.id}`}>
 							<img src={recipe.image} alt={recipe.title} />
 							<h4>{recipe.title}</h4>
 						</Link>
             <button onClick={() => deleteUserFavorite(recipe.id)} >
-					    Delete from favorites {recipe.id} 
+					    Delete from favorites <BsTrashFill />
 				    </button>
 					</div>
 				);
