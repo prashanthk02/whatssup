@@ -13,16 +13,14 @@ export default function Login() {
     e.preventDefault();
     navigate(`/favorites/${user.user_id}`);
   };
-  console.log(user.activeUser, user.mode)
+ 
   if (user.activeUser && !user.error) {
     console.log(user.activeUser, user.error)
     return (
       <>
-
         <h5> What's sup {user.name}</h5>
         <button onClick={logout}>Logout</button>
         <button onClick={submitHandler}>MyFavorite</button>
-
       </>
     )
   } else {
