@@ -19,7 +19,17 @@ export default function Cuisine() {
       });
     } 
   };
+
+
+  // helper function to handle delete recipe to favorite list.
+  function deleteUserFavorite() {
+    return axios.post(`http://localhost:8080/favorite/{params.name}`, { user_id: user.user_id, id: params.name, title: details.title, image: details.image })
+      .then(() => {
+      });
+  }
   
+
+
 	useEffect(() => {
 		getUserFavorite(params.id);
 	}, [params.id]);
@@ -33,6 +43,9 @@ export default function Cuisine() {
 							<img src={recipe.image} alt={recipe.title} />
 							<h4>{recipe.title}</h4>
 						</Link>
+            <button >
+					    Delete from favorites {recipe.id} 
+				    </button>
 					</div>
 				);
 			})}
