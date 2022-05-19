@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { GiCookingPot, GiCutLemon, GiHotSpices, GiChopsticks, GiSushis, GiCroissant, GiCheeseWedge, GiCampCookingPot } from 'react-icons/gi';
+import { GiCookingPot, GiCutLemon, GiHotSpices, GiNoodles, GiSushis, GiCroissant, GiCheeseWedge, GiCampCookingPot } from 'react-icons/gi';
 import { FaPizzaSlice, FaHamburger } from 'react-icons/fa'
 
 import '../styles/category.scss'
@@ -18,7 +18,7 @@ export default function Category() {
 			</Link>
 
 			<Link to="/cuisine/Chinese" className='link'>
-        <GiChopsticks />
+        <GiNoodles />
 				<h4>Chinese</h4>
 			</Link>
 

@@ -40,6 +40,9 @@ export default function Popular() {
 					options={{
             perPage: 4,
             perMove: 1,
+            type: 'loop',
+            focus: 'center',
+            drag: 'free',
 					}}
 				>
 					{popular.map(recipe => {

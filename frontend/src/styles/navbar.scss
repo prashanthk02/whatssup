@@ -3,28 +3,31 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  background: rgba(33, 85, 5, 0.691);
+  background: rgb(3, 50, 3);
   height: 75px;
-  width: auto;
+  width: 100%;
   padding-left: 10px;
   padding-right: 20px;
+  position: fixed;
+  top: 0;
+  z-index: 90;
 
   .link {
     text-decoration: none;
   }
 
   svg {
-    font-size: 28px;
-    color: rgb(5, 4, 57);
+    font-size: 35px;
+    color: white;
 
     &:hover {
-      color: white;
+      color: lightgreen;
     }
   }
 }
 
 .nav--title {
-  color: rgb(5, 4, 57);
+  color: white;
   text-align: left;
   padding-left: 20px;
   font-family: 'Satisfy', cursive;

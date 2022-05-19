@@ -4,6 +4,7 @@ import Popular from '../components/Popular';
 import Search from '../components/Search';
 import MealPlan from '../components/MealPlan';
 import Category from '../components/Category';
+import DietPlan from '../components/DietPlan';
 
 import Facts from './Facts';
 
@@ -24,7 +25,8 @@ export default function Home() {
 
       <div className='app--search'>
         <Search />
-        <MealPlan />   
+        <MealPlan />
+        <DietPlan />
       </div>
 
       <div className='msg'>

@@ -6,6 +6,7 @@ import '../styles/mealplan.scss'
 
 export default function MealPlan() {
 	const [calories, setCalories] = useState('');
+  const [show, setShow] = useState(false);
 
 	let navigate = useNavigate();
 
@@ -15,20 +16,26 @@ export default function MealPlan() {
 	};
 
 	return (
-		<div className='meal--form' >
-			<form>
-        <label>Plan your meals for day based on calories</label>
-				<input
-					type="number"
-					value={calories}
-          placeholder="  Calories intake per day"
-					onChange={e => setCalories(e.target.value)}
-				/>
-			</form>
-      <button onClick={submitHandler}>
-        Meal Plan
-        <FaSearch />
-      </button>
-		</div>
+    <div>
+      <button className="search--btn" onClick={e => setShow(!show)}> Get MealPlan by calories for day </button>
+
+		  {show && 
+        <div className='meal--form' >
+		    	<form>
+            <label>Plan your meals for day based on calories</label>
+		    		<input
+		    			type="number"
+		    			value={calories}
+              placeholder="  Calories intake per day"
+		    			onChange={e => setCalories(e.target.value)}
+              />
+		    	</form>
+          <button onClick={submitHandler}>
+            Meal Plan
+            <FaSearch />
+          </button>
+		    </div>
+      }
+    </div>
 	);
 }
