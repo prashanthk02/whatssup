@@ -4,7 +4,7 @@ import '../styles/recipe.scss'
 import axios from "axios";
 import { GiCoolSpices } from 'react-icons/gi'
 import { BiMessageDetail } from 'react-icons/bi'
-import { BsBookmarkStar } from 'react-icons/bs'
+import {  BsFillBookmarkHeartFill } from 'react-icons/bs'
 import {userContext} from '../providers/AuthProvider';
 
 export default function Recipe() {
@@ -27,6 +27,7 @@ export default function Recipe() {
 
 	  //helper function to handle add recipe to favorite list.
 		function addToFavorite() {
+			setActiveTab('favorites')
 			return axios.post(`http://localhost:8080/favorite`, {user_id: user.user_id, id: params.name, title: details.title, image: details.image})
 				.then(() => {
 				});
@@ -55,12 +56,13 @@ export default function Recipe() {
 				</button>
 
 				<button
+				className={activeTab === 'favorites' ? 'active' : ''}
 					onClick={() => addToFavorite()}
 				>
-					Add to favorites <BsBookmarkStar />
+					Add to favorites <BsFillBookmarkHeartFill />
 				</button>
 
-        <div className='details--div' >
+       { activeTab !== 'favorites' && <div className='details--div' >
           {activeTab === 'ingredients' && (
             <ul>
               {details?.extendedIngredients.map(ingredient => {
@@ -77,7 +79,7 @@ export default function Recipe() {
               ></h3>
             </div>
           )}
-        </div>
+        </div>}
 
 			</div>
 		</div>

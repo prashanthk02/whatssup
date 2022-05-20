@@ -42,6 +42,17 @@
   }
 }
 
+
+.meal--form {
+  .selection {
+    margin: 30px 100px 5px 5px;
+    width: 200px;
+    height: 40px;
+    border-radius: 6px;
+    border: none;
+  }
+}
+
 ::-webkit-input-placeholder {
   font-size: 20px;
 }
