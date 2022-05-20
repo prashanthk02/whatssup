@@ -16,17 +16,15 @@ export default function Search() {
 	};
 
 	return (
-    <div onClick={()=> setShow(!show)}>
-      <button className="search--btn" onClick={() => setShow(!show)}> Search by ingredients </button>
+    <div className="search--box">
+      <button className="reveal--btn" onClick={() => setShow(!show)}> Search by Ingredients </button>
   
       {show && 
-        <div className="search--box" spellcheck="false" onClick={e => e.stopPropagation()} >
+        <div className="search--form" spellCheck="false" onClick={()=> setShow(!show)} >
           <form autoComplete="off">
-            <label>Find recipes based on ingredients you like</label>
-            <input type="text" placeholder="  potato,tomato,spinach" onChange={e => setIngredients(e.target.value)} />
+            <input type="text" placeholder="  potato,tomato,spinach" onClick={e => e.stopPropagation()} onChange={e => setIngredients(e.target.value)} />
           </form>
           <button type="button" className="search--btn" onClick={submitHandler}>
-            Find Recipe
             <FaSearch />
           </button>
         </div>

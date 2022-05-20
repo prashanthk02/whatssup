@@ -23,13 +23,13 @@
     height: 40px;
     width: 350px;
     margin: 5px;
+    font-size: 24px;
   }
 
-  button {
-    height: 40px;
-    width: 125px;
+  .search--btn {
+    height: 45px;
+    width: 135px;
     margin: 5px;
-    margin-top: 30px;
     background-color: rgb(94, 182, 94);
     border-radius: 6px;
     cursor: pointer;
@@ -38,18 +38,39 @@
     align-items: center;
     gap: 5px;
     font-size: 16px;
-    margin-left: -60px;
+    margin-left: 5px;
   }
 }
 
 
 .meal--form {
   .selection {
-    margin: 30px 100px 5px 5px;
+    margin: 5px;
     width: 200px;
-    height: 40px;
+    height: 45px;
     border-radius: 6px;
     border: none;
+  }
+}
+
+.reveal--btn {
+  height: 50px;
+  width: 300px;
+  margin: 5px;
+  margin-left: -60px;
+  margin-top: 30px;
+  background-color: rgb(94, 182, 94);
+  border-radius: 6px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  font-size: 18px;
+
+  &:hover {
+    background-color: rgba(0, 255, 0, 0.905);
+    color: darkgreen;
   }
 }
 

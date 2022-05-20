@@ -28,8 +28,3 @@ insert into favorites (user_id, recipeID, title, image) values (11, 1502445, 'Sh
 insert into favorites (user_id, recipeID, title, image) values (9, 657343, 'Pumpkin Pecan Streusel Muffins', 'https://webknox.com/recipeImages/657343-556x370.jpg');
 insert into favorites (user_id, recipeID, title, image) values (4, 1464299, 'The Best Baked Beans', 'https://webknox.com/recipeImages/1464299-556x370.jpg');
 insert into favorites (user_id, recipeID, title, image) values (17, 27421, 'Fresh Tomato And Gorgonzola Pasta', 'https://webknox.com/recipeImages/27421-556x370.jpg');
-
-
-
-
-
