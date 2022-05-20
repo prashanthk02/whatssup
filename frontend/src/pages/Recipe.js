@@ -15,14 +15,17 @@ export default function Recipe() {
 	const [activeTab, setActiveTab] = useState('ingredients');
 
 	useEffect(() => {
-		const fetchDetails = async () => {
-			const data = await fetch(
+		function getDetails() {
+			axios.get(
 				`https://api.spoonacular.com/recipes/${params.name}/information?apiKey=${process.env.REACT_APP_API_KEY}`
-			);
-			const detailData = await data.json();
-			setDetails(detailData);
+			)
+      .then((response) => {
+        const detailData = response.data;
+        setDetails(detailData);
+      })
+      .catch(() => {console.log('err')});
 		};
-		fetchDetails();
+		getDetails();
 	}, [params.name]);
 
 	  //helper function to handle add recipe to favorite list.
