@@ -6,6 +6,12 @@ import '../styles/fact.scss'
 export default function Facts() {
   const [modalOpen, setModalOpen] = useState(false);
 
+  if(modalOpen) {
+    setTimeout(()=>{
+      setModalOpen(false)
+    }, 6000)
+  }
+
   return (
     <div className="modalBox">
       <button

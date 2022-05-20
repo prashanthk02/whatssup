@@ -16,11 +16,11 @@ export default function MealPlan() {
 	};
 
 	return (
-    <div>
+    <div onClick={()=> setShow(!show)}>
       <button className="search--btn" onClick={e => setShow(!show)}> Get MealPlan by calories for day </button>
 
 		  {show && 
-        <div className='meal--form' >
+        <div className='meal--form' onClick={e => e.stopPropagation()} >
 		    	<form>
             <label>Plan your meals for day based on calories</label>
 		    		<input

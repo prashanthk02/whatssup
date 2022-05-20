@@ -16,11 +16,11 @@ export default function Search() {
 	};
 
 	return (
-    <div>
-      <button className="search--btn" onClick={e => setShow(!show)}> Search by ingredients </button>
+    <div onClick={()=> setShow(!show)}>
+      <button className="search--btn" onClick={() => setShow(!show)}> Search by ingredients </button>
   
       {show && 
-        <div className="search--box">
+        <div className="search--box" spellcheck="false" onClick={e => e.stopPropagation()} >
           <form autoComplete="off">
             <label>Find recipes based on ingredients you like</label>
             <input type="text" placeholder="  potato,tomato,spinach" onChange={e => setIngredients(e.target.value)} />

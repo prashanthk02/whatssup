@@ -16,14 +16,14 @@ export default function WeekPlan() {
 	};
 
 	return (
-    <div>
+    <div onClick={()=> setShow(!show)}>
       <button className="search--btn" onClick={e => setShow(!show)}> By Diet </button>
 
 		  {show && 
-        <div className='meal-' >
+        <div className='meal--form' onClick={e => e.stopPropagation()} >
 
-		    	<select value={diet} onChange={e => setDiet(e.target.value)}>
-            <option>--Select--</option>
+		    	<select className='selection' value={diet} onChange={e => setDiet(e.target.value)}>
+            <option >--Select--</option>
             <option value="Gluten Free">Gluten Free</option>
             <option value="Ketogenic">Ketogenic</option>
             <option value="Lacto-Vegetarian">Lacto-Vegetarian</option>
@@ -33,7 +33,7 @@ export default function WeekPlan() {
             <option value="Vegetarian">Vegetarian</option>
 		    	</select>
           <button onClick={submitHandler}>
-            Get Recipe
+            Get Recipes
             <FaSearch />
           </button>
 		    </div>
