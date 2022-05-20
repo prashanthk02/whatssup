@@ -1,16 +1,15 @@
 
 .modalBackground {
-  background: transparent;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  left: 10%;
+  top: 40%;
+  width: 1200px;
+  position: absolute;
 }
 
 .modalContainer {
   height: auto;
   width: auto;
   border-radius: 12px;
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   padding: 20px;
   word-wrap: break-word;
   margin: 20px;
