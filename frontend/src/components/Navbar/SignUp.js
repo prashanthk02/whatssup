@@ -53,7 +53,7 @@ export default function SignUp() {
               onChange={e => (setUser(prev => ({ ...prev, password: e.target.value })))}
             />
             <br></br>
-            <input type="submit" value="SIGNUP" className="login-btn" />
+            <input type="submit" value="SUBMIT" className="login-btn" />
           </form>
         </div>
       </div>

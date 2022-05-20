@@ -16,6 +16,7 @@ export default function Login() {
   };
  
   if (user.activeUser && !user.error) {
+    console.log(user.activeUser, user.error)
     return (
       <>
         <span className="greeting"> What's sup {user.name}</span>
@@ -50,7 +51,7 @@ export default function Login() {
                 onChange={e => (setUser(prev => ({ ...prev, password: e.target.value })))}
               />
               <br></br>
-              <input type="submit" value="LOGIN" className="login-btn" />              
+              <input type="submit" value="SUBMIT" className="login-btn" />              
             </form>
             <h6 className="error-message">{user.error}</h6>
           </div>
