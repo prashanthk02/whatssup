@@ -1,6 +1,7 @@
 import { useContext } from "react"
 import axios from "axios";
 import { userContext } from "../../providers/AuthProvider";
+import "../../styles/signup.scss"
 
 
 export default function SignUp() {
@@ -21,28 +22,42 @@ export default function SignUp() {
 
   return (
     <>
-      <form onSubmit={onSubmitSignUpForm}>
-        <input
-          type="text"
-          className="form-control"
-          placeholder="enter name"
-          onChange={e => (setUser(prev => ({ ...prev, name: e.target.value })))}
-        />
-        <input
-          type="text"
-          placeholder="enter email"
-          className="form-control"
-          onChange={e => (setUser(prev => ({ ...prev, email: e.target.value })))}
-        />
-        <input
-          type="password"
-          className="form-control"
-          autoComplete="on"
-          placeholder="enter password"
-          onChange={e => (setUser(prev => ({ ...prev, password: e.target.value })))}
-        />
-        <button>SignUp</button>
-      </form>
+    <div className="show">
+      <div className="signup-form">
+        <div className="form-box solid">
+          <form className="form-box-inner" onSubmit={onSubmitSignUpForm}>
+            <h1 className="signup-text">Sign Up</h1>
+            <label>Username</label>
+            <br></br>
+            <input
+              type="text"
+              name="name"
+              className="signup-box"              
+              onChange={e => (setUser(prev => ({ ...prev, name: e.target.value })))}
+            />
+            <br></br>
+            <label>Emaill</label>
+            <input
+              type="text"
+              name="email"
+              className="signup-box"
+              onChange={e => (setUser(prev => ({ ...prev, email: e.target.value })))}
+            />
+            <br></br>
+            <label>Password</label>
+            <input
+              type="password"
+              name="password"
+              className="signup-box"
+              autoComplete="on"            
+              onChange={e => (setUser(prev => ({ ...prev, password: e.target.value })))}
+            />
+            <br></br>
+            <input type="submit" value="SIGNUP" className="login-btn" />
+          </form>
+        </div>
+      </div>
+    </div>
     </>
   )
 }

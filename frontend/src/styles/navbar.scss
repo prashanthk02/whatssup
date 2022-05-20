@@ -12,6 +12,9 @@
   .link {
     text-decoration: none;
   }
+  .link-home {
+    margin-right: 1em;
+  }
 
   svg {
     font-size: 28px;
@@ -31,6 +34,11 @@
   font-size: 30px;
 }
 
+.three-icons {
+  display: flex;
+  justify-content: space-between;
+}
+
 .nav--login_signup button {
   background: rgba(68, 93, 19, 0.691);
   font-size: 17px;
@@ -43,4 +51,21 @@
 .nav--login_signup:hover {
   background: rgba(161, 207, 68, 0.691);
   font-weight: bold;  
+}
+
+.loginicon, .signupicon {
+  width: 100px;
+  margin-right: 1em;
+  text-decoration: none;
+  font-weight: bolder;
+  color: white;
+  height: 40px;
+  top: 10px;
+  background:rgb(38,78,7);
+  border-radius: 24px;
+  cursor: pointer;
+}
+
+.loginicon:hover, .signupicon:hover {
+  color: white;
 }

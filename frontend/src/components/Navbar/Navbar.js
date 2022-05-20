@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { HiHome } from 'react-icons/hi'
 import { useContext } from "react"
@@ -10,21 +10,29 @@ import SignUp from "./SignUp";
 
 export default function Navbar() {
 
+  const [isShowLogin, setIsShowLogin] = useState(true);
+  const [isShowSignUp, setIsShowSignUp] = useState(true);
+
   const { user, setUser } = useContext(userContext);
   return (
     <div className="nav">
+      <div>
       <Link className="link" to={'/'}>
-        <h2 className="nav--title"> What's Supp? </h2>
+        <h2 className="nav--title"> What's Sup? </h2>
       </Link>
+      </div>
 
-      <Link className="link" to={'/'}>
+      <div className="three-icons">
+      <Link className="link-home" to={'/'}>
         <HiHome />
       </Link>
-      
-      {user.activeUser === false && user.mode === "" && <button onClick={() => setUser(prev => ({ ...prev, mode: "SignIn"}))}>Login</button>}
-      {user.activeUser === false && user.mode === "" && <button onClick={() => setUser(prev => ({ ...prev, mode: "SignUp"}))}>Sign up</button>}
-      {(user.mode === "SignIn" || user.mode === "SignUp") && <Login />}
-      { user.mode !== "SignIn" && user.mode === "SignUp" && <SignUp  />}
+
+      {user.activeUser === false && user.mode === "" && <button className="loginicon" onClick={() => setUser(prev => ({ ...prev, mode: "SignIn"}))}>Login</button>}
+      {user.activeUser === false && user.mode === "" && <button className="signupicon" onClick={() => setUser(prev => ({ ...prev, mode: "SignUp"}))}>Sign up</button>}      
+      </div>
+
+      {user.mode === "SignIn" && <Login />}
+      {user.mode === "SignUp" && <SignUp />}
     </div>
   );
 }
