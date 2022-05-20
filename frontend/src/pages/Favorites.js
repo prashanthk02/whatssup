@@ -1,24 +1,25 @@
 import React, { useEffect, useState } from 'react';
-import '../styles/recipe.scss';
+import '../styles/favorites.scss';
 import { Link, useParams } from 'react-router-dom';
 import axios from "axios";
 import { BsTrashFill } from 'react-icons/bs';
+import { useContext } from "react"
+import { userContext } from '../providers/AuthProvider';
 
 export default function Cuisine() {
-	const [favorites, setFavorites] = useState([]);
+  const [favorites, setFavorites] = useState([]);
+  const { user } = useContext(userContext);
+  let params = useParams();
 
-	let params = useParams();
-
-   // get user's favorite recipes control
-   const getUserFavorite = async (userId) => {
+  // get user's favorite recipes control
+  const getUserFavorite = async (userId) => {
     if (userId) {
       axios.get(`http://localhost:8080/favorite/${userId}`)
-      .then((response) => {
-        setFavorites(response.data);
-      });
-    } 
+        .then((response) => {
+          setFavorites(response.data);
+        });
+    }
   };
-
 
   // helper function to handle delete a recipe from favorite list.
   const deleteUserFavorite = function (recipeId) {
@@ -27,26 +28,31 @@ export default function Cuisine() {
         getUserFavorite(params.id);
       });
   }
-  
-	useEffect(() => {
-		getUserFavorite(params.id);
-	}, [params.id]);
 
-	return (
-		<div>
-			{favorites.map(recipe => {
-				return (
-					<div key={recipe.id} className="favorites" >
-						<Link to={`/recipe/${recipe.id}`}>
-							<img src={recipe.image} alt={recipe.title} />
-							<h4>{recipe.title}</h4>
-						</Link>
-            <button onClick={() => deleteUserFavorite(recipe.id)} >
-					    Delete from favorites <BsTrashFill />
-				    </button>
-					</div>
-				);
-			})}
-		</div>
-	);
+  useEffect(() => {
+    getUserFavorite(params.id);
+  }, [params.id]);
+
+  return (
+    <div className='favorites--box'>
+      <h1> {user.name}'s Favorites recipe </h1>
+      <div>
+        {favorites.map(recipe => {
+          return (
+            <div >
+              <div key={recipe.id} className='favorites--receipe--card' >
+                <Link to={`/recipe/${recipe.id}`}>
+                  <img src={recipe.image} alt={recipe.title} />
+                  <h4>{recipe.title}</h4>
+                </Link>
+              </div>
+              <button onClick={() => deleteUserFavorite(recipe.id)} >
+                <BsTrashFill />
+              </button>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  );
 }
