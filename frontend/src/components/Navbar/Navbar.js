@@ -27,8 +27,8 @@ export default function Navbar() {
         <HiHome />
       </Link>
 
-      {user.activeUser === false && user.mode === "" && <button className="loginicon" onClick={() => setUser(prev => ({ ...prev, mode: "SignIn"}))}>Login</button>}
-      {user.activeUser === false && user.mode === "" && <button className="signupicon" onClick={() => setUser(prev => ({ ...prev, mode: "SignUp"}))}>Sign up</button>}      
+      {(user.mode === "SignUp" || user.mode === "SignIn" || user.mode === "") && <button className="loginicon" onClick={() => setUser(prev => ({ ...prev, mode: "SignIn"}))}>Login</button>}
+      {(user.mode === "SignUp" || user.mode === "SignIn" || user.mode === "") && <button className="signupicon" onClick={() => setUser(prev => ({ ...prev, mode: "SignUp"}))}>Sign up</button>}      
       </div>
 
       {user.mode === "SignIn" && <Login />}
