@@ -14,7 +14,7 @@ const addRecipe = function (user_id, recipeID, title, image, db) {
 
 //helper function to query database.
 const deleteRecipe = function (recipeID, db) {
-  const queryString = `DELETE  from favorites where recipeID = $1`;
+  const queryString = `DELETE  from favorites where id = $1 RETURNING *`;
   return db.query(queryString, [recipeID]);
 };
 

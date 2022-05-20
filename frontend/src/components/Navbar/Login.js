@@ -15,7 +15,6 @@ export default function Login() {
   };
  
   if (user.activeUser && !user.error) {
-    console.log(user.activeUser, user.error)
     return (
       <>
         <h5> What's sup {user.name}</h5>
