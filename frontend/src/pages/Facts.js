@@ -9,7 +9,7 @@ export default function Facts() {
   if(modalOpen) {
     setTimeout(()=>{
       setModalOpen(false)
-    }, 15000000)
+    }, 15000)
   }
 
   return (
