@@ -20,13 +20,8 @@ export default function Login() {
   const submitHandler = e => {
     e.preventDefault();
     navigate(`/favorites/${user.user_id}`);
-<<<<<<< HEAD
   };  
  
-=======
-  };
-  console.log("Here is user", user)
->>>>>>> main
   if (user.activeUser && !user.error) {
     console.log(user.activeUser, user.error)
     return (
