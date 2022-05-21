@@ -2,28 +2,17 @@
   z-index: 1;
   width: 150px;
   background: rgb(12, 75, 18);
-  margin: 0 auto;
-  // margin-top: 155%;
-  // margin-right: 100px;
+  margin-top: 130%;
+  margin-right: 100px;
   padding-top: 0;
   padding-right: 60px;
   padding-left: 60px;
-  padding-bottom: 30px;
   border-radius: 20px;
   display: flex;
   flex-direction: column;
 }
 
-.signup-form{
-  z-index: 1;
-  margin-top: 140%;
-  margin-right: 100px;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-}
+
 .signup-box{
   border: 1px solid lightgrey;
   height: 25px;
@@ -80,13 +69,6 @@ label {
   text-align: center;
 }
 
-
-
-.form-box-inner {
-  padding-bottom: 30px;
-  display: flex;
-  flex-direction: column;
-}
 
 .show {
   display: block;
