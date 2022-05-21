@@ -1,38 +1,44 @@
-import { useContext } from "react"
+import { useContext, useState } from "react"
 import { userContext } from "../../providers/AuthProvider";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
+
 import "../../styles/login.scss"
 
 
-export default function Login() {
+export default function Login() {  
 
   const { user, setUser, logout, onSubmitLoginForm } = useContext(userContext);
-
+  const [closeLogin, setCloseLogin] = useState(false);
   const navigate = useNavigate();
+
+  const closeHandler = e => {
+    window.location.reload();
+    setUser(prev => ({ ...prev, mode: ""}));
+    setCloseLogin(true);
+  };
 
   const submitHandler = e => {
     e.preventDefault();
     navigate(`/favorites/${user.user_id}`);
   };
-  console.log("Here is user", user)
+ 
   if (user.activeUser && !user.error) {
     console.log(user.activeUser, user.error)
     return (
-      <>
-        <span className="greeting"> What's sup {user.name}</span>
-        <div>
+      <>        
+        <div className="logout_favorite-icon">
           <button className="logout-icon" onClick={logout}>Logout</button>
           <button className="favorite-icon" onClick={submitHandler}>MyFavorite</button>
         </div>
+        <span className="greeting"> What's sup, {user.name} !!</span>
       </>
     )
   } else {
     return (
       <>
-      <div className="show">
-        <div className="login-form">
-          <div className="form-box solid">
-            <form className="form-box-inner" onSubmit={onSubmitLoginForm}>
+      <div className="show">                                       
+            {closeLogin == false && <form className="form-box solid" onSubmit={onSubmitLoginForm}>
+              <button onClick={closeHandler}> X </button>
               <h1 className="login-text">Sign In</h1>
               <label>email</label>
               <input
@@ -52,10 +58,8 @@ export default function Login() {
               />
               <br></br>
               <input type="submit" value="SUBMIT" className="login-btn" />              
-            </form>
-            <h6 className="error-message">{user.error}</h6>
-          </div>
-        </div>
+              <h6 className="error-message">{user.error}</h6>
+            </form>}     
       </div>
       </>
     )

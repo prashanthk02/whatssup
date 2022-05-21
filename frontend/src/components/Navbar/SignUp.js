@@ -1,12 +1,15 @@
-import { useContext } from "react"
+import { useContext, useState } from "react"
 import axios from "axios";
 import { userContext } from "../../providers/AuthProvider";
+import { useNavigate } from "react-router-dom";
 import "../../styles/signup.scss"
 
 
 export default function SignUp() {
 
   const { user, setUser } = useContext(userContext);
+  const [closeSignUp, setCloseSignUp] = useState(false);
+  const navigate = useNavigate();
 
   const onSubmitSignUpForm = async (event) => {
     event.preventDefault();
@@ -20,12 +23,17 @@ export default function SignUp() {
       });
   };
 
+  const closeHandler = e => {
+    window.location.reload();
+    setCloseSignUp(true);
+  };
+
   return (
     <>
     <div className="show">
-      <div className="signup-form">
-        <div className="form-box solid">
-          <form className="form-box-inner" onSubmit={onSubmitSignUpForm}>
+      
+          {closeSignUp == false && <form className="form-box solid" onSubmit={onSubmitSignUpForm}>
+            <button onClick={closeHandler}> X </button>
             <h1 className="signup-text">Sign Up</h1>
             <label>Username</label>
             <br></br>
@@ -54,9 +62,8 @@ export default function SignUp() {
             />
             <br></br>
             <input type="submit" value="SUBMIT" className="login-btn" />
-          </form>
-        </div>
-      </div>
+          </form>}
+        
     </div>
     </>
   )
