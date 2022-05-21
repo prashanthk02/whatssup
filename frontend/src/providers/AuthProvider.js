@@ -25,15 +25,17 @@ export default function AuthProvider(props) {
     const userData = { email: user.email, password: user.password };
     axios.post("http://localhost:8080/login", userData)
       .then((response) => {
-        setUser(prev => ({ ...prev, error: response.data.error, mode: "SignIn", user_id: response.data.id, name: response.data.name, email: user.email, activeUser: true }));
+        if (response.data.error) {
+          return setUser(prev => ({ ...prev, error: response.data.error, email: "", activeUser: false }));
+        }
+        setUser(prev => ({ ...prev, error: response.data.error, user_id: response.data.id, name: response.data.name, email: user.email, activeUser: true }));
         localStorage.setItem("activeUser", true);
         localStorage.setItem("mode", "SignIn");
         localStorage.setItem("name", response.data.name);
         localStorage.setItem("user_id", response.data.id);
       });
   };
-  console.log(user)
-  console.log("Here is local storage", (localStorage.getItem("activeUser") === "true"));
+
   // Logout control
   const logout = (event) => {
     event.preventDefault();
@@ -47,6 +49,9 @@ export default function AuthProvider(props) {
       mode: ""
     });
     localStorage.setItem("activeUser", false);
+    localStorage.setItem("mode", "");
+    localStorage.setItem("name", "");
+    localStorage.setItem("user_id", "");
     navigate("/");
   }
 

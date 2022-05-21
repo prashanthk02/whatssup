@@ -17,14 +17,18 @@ export default function SignUp() {
     axios.post("http://localhost:8080/register", userData)
       .then((response) => {
         if (response.data.error) {
-          return setUser(prev => ({ ...prev, error: response.data.error, email: "", activeUser: false }));
+          return setUser(prev => ({ ...prev, error: response.data.error}));
         }
         setUser(prev => ({ ...prev, error: response.data.error, user_id: response.data.id, email: user.email, activeUser: true, mode: "SignIn" }));
+        localStorage.setItem("activeUser", true);
+        localStorage.setItem("mode", "SignIn");
+        localStorage.setItem("name", response.data.name);
+        localStorage.setItem("user_id", response.data.id);
       });
   };
 
   const closeHandler = e => {
-    window.location.reload();
+    setUser(prev => ({ ...prev, mode: ""}));
     setCloseSignUp(true);
   };
 
@@ -32,7 +36,7 @@ export default function SignUp() {
     <>
     <div className="show">
       
-          {closeSignUp == false && <form className="form-box solid" onSubmit={onSubmitSignUpForm}>
+          {closeSignUp === false && <form className="form-box solid" onSubmit={onSubmitSignUpForm}>
             <button onClick={closeHandler}> X </button>
             <h1 className="signup-text">Sign Up</h1>
             <label>Username</label>
@@ -57,11 +61,12 @@ export default function SignUp() {
               type="password"
               name="password"
               className="signup-box"
-              autoComplete="on"            
+              autoComplete="off"            
               onChange={e => (setUser(prev => ({ ...prev, password: e.target.value })))}
             />
             <br></br>
-            <input type="submit" value="SUBMIT" className="login-btn" />
+            <button type="submit" className="login-btn" >SUBMIT</button>
+            <h6 className="error-message">{user.error}</h6>
           </form>}
         
     </div>

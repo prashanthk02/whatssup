@@ -11,8 +11,7 @@ export default function Login() {
   const [closeLogin, setCloseLogin] = useState(false);
   const navigate = useNavigate();
 
-  const closeHandler = e => {
-    window.location.reload();
+  const closeHandler = e => {    
     setUser(prev => ({ ...prev, mode: ""}));
     setCloseLogin(true);
   };
@@ -23,7 +22,6 @@ export default function Login() {
   };
  
   if (user.activeUser && !user.error) {
-    console.log(user.activeUser, user.error)
     return (
       <>        
         <div className="logout_favorite-icon">
@@ -39,7 +37,7 @@ export default function Login() {
       <div className="show">                                       
             {closeLogin == false && <form className="form-box solid" onSubmit={onSubmitLoginForm}>
               <button onClick={closeHandler}> X </button>
-              <h1 className="login-text">Sign In</h1>
+              <h1 className="login-text">Login</h1>
               <label>email</label>
               <input
                 type="text"

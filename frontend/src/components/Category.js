@@ -42,15 +42,15 @@ export default function Category() {
 				<h4>Italian</h4>
 			</Link>
 
-      <Link to="/cuisine/Mexican" className='link'>
-        <GiCutLemon />
-				<h4>Mexican</h4>
-			</Link>
-
-      <Link to="/cuisine/Japanese" className='link'>
+			<Link to="/cuisine/Japanese" className='link'>
         <GiSushis />
 				<h4>Japanese</h4>
 			</Link>
+
+      <Link to="/cuisine/Mexican" className='link'>
+        <GiCutLemon />
+				<h4>Mexican</h4>
+			</Link>      
 
       <Link to="/cuisine/Thai" className='link'>
         <GiCampCookingPot />
