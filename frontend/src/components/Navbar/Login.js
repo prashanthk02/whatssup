@@ -13,14 +13,14 @@ export default function Login() {
 
   const closeHandler = e => {
     window.location.reload();
-    // navigate('/');
+    setUser(prev => ({ ...prev, mode: ""}));
     setCloseLogin(true);
   };
 
   const submitHandler = e => {
     e.preventDefault();
     navigate(`/favorites/${user.user_id}`);
-  };  
+  };
  
   if (user.activeUser && !user.error) {
     console.log(user.activeUser, user.error)
