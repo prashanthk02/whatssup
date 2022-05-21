@@ -27,6 +27,14 @@
       color: lightgreen;
     }
   }
+
+  h2 {
+    svg {
+      &:hover {
+        color: white;
+      }
+    }
+  }
 }
 
 .nav--title {

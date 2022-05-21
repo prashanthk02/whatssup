@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { HiHome } from 'react-icons/hi'
 import { useContext } from "react"
 import { userContext } from "../../providers/AuthProvider";
+import { GiSpoon } from 'react-icons/gi'
 
 import "../../styles/navbar.scss"
 import Login from "./Login";
@@ -18,7 +19,8 @@ export default function Navbar() {
     <div className="nav">
       <div>
       <Link className="link" to={'/'}>
-        <h2 className="nav--title"> What's Sup? </h2>
+        <h2 className="nav--title"> What's Sup? <GiSpoon /> </h2>
+        
       </Link>
       </div>
 
