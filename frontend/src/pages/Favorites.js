@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import '../styles/favorites.scss';
 import { Link, useParams } from 'react-router-dom';
 import axios from "axios";
 import { BsTrashFill } from 'react-icons/bs';
 import { useContext } from "react"
 import { userContext } from '../providers/AuthProvider';
+
+import '../styles/page.scss'
 
 export default function Cuisine() {
   const [favorites, setFavorites] = useState([]);
@@ -34,25 +35,25 @@ export default function Cuisine() {
   }, [params.id]);
 
   return (
-    <div className='favorites--box'>
-      <h1> {user.name}'s Favorites recipe </h1>
-      <div>
+    <div>
+      <h1 className='result--title'> {user.name}'s Favorites recipe </h1>
+
+      <div className='result--items'>
         {favorites.map(recipe => {
           return (
-            <div >
-              <div key={recipe.id} className='favorites--receipe--card' >
-                <Link to={`/recipe/${recipe.id}`}>
-                  <img src={recipe.image} alt={recipe.title} />
-                  <h4>{recipe.title}</h4>
-                </Link>
-              </div>
-              <button onClick={() => deleteUserFavorite(recipe.id)} >
-                <BsTrashFill />
-              </button>
-            </div>
+            <div className='result--card' key={recipe.id} >
+              <Link className='link' to={`/recipe/${recipe.id}`}>
+                <img src={recipe.image} alt={recipe.title} />
+                <h4>{recipe.title}</h4>
+              </Link>
+            <button className='delete-btn' onClick={() => deleteUserFavorite(recipe.id)} >
+              <BsTrashFill />
+            </button>
+          </div>
           );
         })}
       </div>
+
     </div>
   );
 }
