@@ -25,12 +25,12 @@ export default function Login() {
   if (user.activeUser && !user.error) {
     console.log(user.activeUser, user.error)
     return (
-      <>
-        <span className="greeting"> What's sup, {user.name} !!</span>
-        <div>
+      <>        
+        <div className="logout_favorite-icon">
           <button className="logout-icon" onClick={logout}>Logout</button>
           <button className="favorite-icon" onClick={submitHandler}>MyFavorite</button>
         </div>
+        <span className="greeting"> What's sup, {user.name} !!</span>
       </>
     )
   } else {

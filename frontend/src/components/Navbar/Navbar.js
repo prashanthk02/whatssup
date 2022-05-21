@@ -16,12 +16,7 @@ export default function Navbar() {
   const { user, setUser } = useContext(userContext);  
 
   return (
-    <div className="nav">
-      <div>
-      <Link className="link" to={'/'}>
-        <h2 className="nav--title"> What's Sup? </h2>
-      </Link>
-      </div>
+    <div className="nav">      
 
       <div className="three-icons">
       <Link className="link-home" to={'/'}>
@@ -34,6 +29,12 @@ export default function Navbar() {
 
       {user.mode === "SignIn" && <Login />}
       {user.mode === "SignUp" && <SignUp />}
+
+      <div>
+      <Link className="link" to={'/'}>
+        <h2 className="nav--title"> What's Sup? </h2>
+      </Link>
+      </div>
     </div>
   );
 }
