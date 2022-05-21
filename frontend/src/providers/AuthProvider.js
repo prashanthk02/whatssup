@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 export const userContext = createContext();
 
 export default function AuthProvider(props) {
-   const navigate = useNavigate();
+  const navigate = useNavigate();
   // initialize state variables
   const [user, setUser] = useState({
     user_id: localStorage.getItem("user_id") || "",
@@ -18,6 +18,7 @@ export default function AuthProvider(props) {
     message: ""
   });
   // localStorage.setItem("activeUser", false);
+  
   // login control
   const onSubmitLoginForm = async (event) => {
     event.preventDefault();

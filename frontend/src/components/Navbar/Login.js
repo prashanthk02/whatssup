@@ -40,7 +40,7 @@ export default function Login() {
             onChange={e => (setUser(prev => ({ ...prev, password: e.target.value })))}
           />
           <button>Login</button>
-          {user.mode !== "SignUp" && <button onClick={() => (setUser(prev => ({ ...prev, mode: "SignUp"})))}>SignUp</button>}
+          {user.mode !== "SignUp" && <button onClick={() => (setUser(prev => ({ ...prev, mode: "SignUp" })))}>SignUp</button>}
         </form>
         <h6>{user.error}</h6>
       </>
