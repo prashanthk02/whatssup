@@ -40,17 +40,23 @@ module.exports = (db) => {
   router.post('/', (req, res) => {
 
     const recipe = req.body;
-
+    
     if (!recipe.user_id || !recipe.id || !recipe.title || !recipe.image) {
       return res.json({ error: "More information needed" });
     }
-    addRecipe(recipe.user_id, recipe.id, recipe.title, recipe.image, db)
-      .then(result => {
-        return res.json(result);
+    getRecipeById(recipe.id, db)
+      .then((result) => {
+        if(result) {
+          return res.json({ message: "Recipe already exists as favorite" });
+        }
+        addRecipe(recipe.user_id, recipe.id, recipe.title, recipe.image, db)
+        .then(result => {
+          return res.json({message: "Recipe added to favorite list"});
+        })
+        .catch(err => {
+          res.json({ error: err.message });
+        });
       })
-      .catch(err => {
-        res.json({ error: err.message });
-      });
   });
 
   router.delete('/:id', (req, res) => {

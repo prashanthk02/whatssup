@@ -9,7 +9,7 @@ import {userContext} from '../providers/AuthProvider';
 
 export default function Recipe() {
 	let params = useParams();
-	const { user } = useContext(userContext);
+	const { user, setUser } = useContext(userContext);
 
 	const [details, setDetails] = useState();
 	const [activeTab, setActiveTab] = useState('ingredients');
@@ -29,7 +29,8 @@ export default function Recipe() {
 		function addToFavorite() {
 			setActiveTab('favorites')
 			return axios.post(`http://localhost:8080/favorite`, {user_id: user.user_id, id: params.name, title: details.title, image: details.image})
-				.then(() => {
+				.then((response) => {
+					setUser(prev => ({...prev, message: response.data.message}))
 				});
 		}
 
@@ -61,6 +62,7 @@ export default function Recipe() {
 				>
 					Add to favorites <BsFillBookmarkHeartFill />
 				</button>
+				<h1> {user.message} </h1>
 
        { activeTab !== 'favorites' && <div className='details--div' >
           {activeTab === 'ingredients' && (

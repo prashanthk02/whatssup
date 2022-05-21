@@ -13,7 +13,7 @@ export default function Login() {
     e.preventDefault();
     navigate(`/favorites/${user.user_id}`);
   };
- 
+  console.log("Here is user", user)
   if (user.activeUser && !user.error) {
     return (
       <>
