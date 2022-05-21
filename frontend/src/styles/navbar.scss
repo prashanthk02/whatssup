@@ -13,9 +13,12 @@
 
   .link {
     text-decoration: none;
+    position: relative;
+    left: 6%;
   }
   .link-home {
-    margin-right: 1em;
+    position: absolute;
+    left: 74%;
   }
 
   svg {
@@ -23,7 +26,7 @@
     color: white;
 
     &:hover {
-      color: lightgreen;
+      font-size: 40px;
     }
   }
 
@@ -31,6 +34,7 @@
     svg {
       &:hover {
         color: white;
+        font-size: 35px;
       }
     }
   }
@@ -44,19 +48,23 @@
   font-size: 30px;
 }
 
-.three-icons {
+.nav--options {
   display: flex;
+  left: 78%;
+  position: absolute;
+  gap: 10px;
 }
 
 .loginicon, .signupicon {
-  width: 100px;
-  margin-right: 1em;
-  text-decoration: none;
-  font-weight: bolder;
-  color: white;
+  width: 120px;
+  border: none;
   height: 40px;
-  top: 10px;
-  background:rgb(38,78,7);
-  border-radius: 24px;
+  font-size: 18px;
+  background:rgba(94, 182, 94, 0.6);
+  border-radius: 5px;
   cursor: pointer;
+
+  &:hover {
+    background-color: white;
+  }
 }

@@ -55,7 +55,7 @@ module.exports = (db) => {
     getRecipeById(recipe.id, db)
       .then((result) => {
         if (result) {
-          return res.json({ message: "Recipe already exists as favorite" });
+          return res.json({ message: "Recipe already exists in favorites" });
         }
         addRecipe(recipe.user_id, recipe.id, recipe.title, recipe.image, db)
           .then(result => {

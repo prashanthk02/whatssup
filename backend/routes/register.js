@@ -39,7 +39,7 @@ module.exports = (db) => {
     getUserByEmail(user.email, db)
       .then(checkemail => {
         if (checkemail) {
-          return res.json({ error: `The email ${user.email} already exists with the name ${checkemail.name}!` });
+          return res.json({ error: `Email already registered!` });
         }
         else {
           addUser(user.name, user.email, user.password, db) // add new user to database

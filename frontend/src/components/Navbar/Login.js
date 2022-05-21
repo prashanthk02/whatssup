@@ -26,27 +26,28 @@ export default function Login() {
       <>        
         <div className="logout_favorite-icon">
           <button className="logout-icon" onClick={logout}>Logout</button>
-          <button className="favorite-icon" onClick={submitHandler}>MyFavorite</button>
+          <button className="favorite-icon" onClick={submitHandler}>My Favorites</button>
         </div>
-        <span className="greeting"> What's sup, {user.name} !!</span>
+        <p className="greeting"> What's sup, {user.name} !</p>
       </>
     )
   } else {
     return (
-      <>
-      <div className="show">                                       
-            {closeLogin == false && <form className="form-box solid" onSubmit={onSubmitLoginForm}>
-              <button onClick={closeHandler}> X </button>
+      <div className="login--form"  onClick={closeHandler}>
+      <div className="show" onClick={e => e.stopPropagation()}>                                       
+            {closeLogin === false && <form className="form-box" onSubmit={onSubmitLoginForm}>
+              <button className="close-btn" onClick={closeHandler}> X </button>
               <h1 className="login-text">Login</h1>
-              <label>email</label>
+              <br/>
+              <label>Email</label>
               <input
                 type="text"
                 name="email"
                 className="login-box"
                 onChange={e => (setUser(prev => ({ ...prev, email: e.target.value })))}
               />
-              <br></br>
-              <label>password</label>
+              <br/>
+              <label>Password</label>
               <input
                 type="password"
                 autoComplete="on"
@@ -54,12 +55,12 @@ export default function Login() {
                 className="login-box"
                 onChange={e => (setUser(prev => ({ ...prev, password: e.target.value })))}
               />
-              <br></br>
-              <input type="submit" value="SUBMIT" className="login-btn" />              
+              <br/>
+              <button type="submit" className="login-btn" >SUBMIT</button>             
               <h6 className="error-message">{user.error}</h6>
             </form>}     
       </div>
-      </>
+      </div>
     )
   }
 }

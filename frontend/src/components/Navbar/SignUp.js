@@ -1,15 +1,13 @@
 import { useContext, useState } from "react"
 import axios from "axios";
 import { userContext } from "../../providers/AuthProvider";
-import { useNavigate } from "react-router-dom";
-import "../../styles/signup.scss"
+import "../../styles/login.scss"
 
 
 export default function SignUp() {
 
   const { user, setUser } = useContext(userContext);
   const [closeSignUp, setCloseSignUp] = useState(false);
-  const navigate = useNavigate();
 
   const onSubmitSignUpForm = async (event) => {
     event.preventDefault();
@@ -33,43 +31,43 @@ export default function SignUp() {
   };
 
   return (
-    <>
-    <div className="show">
+    <div className="login--form"  onClick={closeHandler}>
+    <div className="show" onClick={e => e.stopPropagation()}>
       
-          {closeSignUp === false && <form className="form-box solid" onSubmit={onSubmitSignUpForm}>
-            <button onClick={closeHandler}> X </button>
-            <h1 className="signup-text">Sign Up</h1>
+          {closeSignUp === false && <form className="form-box" onSubmit={onSubmitSignUpForm}>
+            <button className="close-btn" onClick={closeHandler}> X </button>
+            <h1 className="login-text">Sign Up</h1>
+            <br/>
             <label>Username</label>
-            <br></br>
             <input
               type="text"
               name="name"
-              className="signup-box"              
+              className="login-box"              
               onChange={e => (setUser(prev => ({ ...prev, name: e.target.value })))}
             />
-            <br></br>
-            <label>Emaill</label>
+            <br/>
+            <label>Email</label>
             <input
               type="text"
               name="email"
-              className="signup-box"
+              className="login-box"
               onChange={e => (setUser(prev => ({ ...prev, email: e.target.value })))}
             />
-            <br></br>
+            <br/>
             <label>Password</label>
             <input
               type="password"
               name="password"
-              className="signup-box"
+              className="login-box"
               autoComplete="off"            
               onChange={e => (setUser(prev => ({ ...prev, password: e.target.value })))}
             />
-            <br></br>
+            <br/>
             <button type="submit" className="login-btn" >SUBMIT</button>
             <h6 className="error-message">{user.error}</h6>
           </form>}
         
     </div>
-    </>
+    </div>
   )
 }

@@ -1,29 +1,36 @@
-.show {
-  margin-top: 20%;
-  margin-left: 5%;
+.login--form {
+  height: 800px;
+  width: 1000px;
+  position: absolute;
+  left:20%;
+  top: 60%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: transparent;
 }
 
 .form-box{
   z-index: 1;
-  width: 150px;
+  width: 300px;
   background: rgb(12, 75, 18);
-  padding-top: 0;
-  padding-right: 60px;
-  padding-left: 60px;
   border-radius: 20px;
+  padding-left: 100px;
+  padding-right: 100px;
   display: flex;
   flex-direction: column;
+  align-items: center;
+
+  label {
+    text-align: start;
+  }
 }
 
 .login-box{
   border: 1px solid lightgrey;
-  height: 25px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 20px;
-  padding: 2px;
-  padding-left: 10px;
+  height: 30px;
+  width: 300px;
+  border-radius: 6px;
   letter-spacing: 1px;
   font-weight: 600;
   margin: 5px;
@@ -33,35 +40,23 @@
 }
 
 .login-text{
-  width: 100%;
   color: white;
-  border-bottom: 2px solid white;
-  line-height: 30px;
-  width: 100%;
   font-weight: bolder;
-  text-align: center;
+  font-size: 30px;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-top: 5vh;
 }
 
 .login-btn{
-  width: 75%;
-  justify-content: center;
-  align-items: center;
-  align-self: center;
+  width: 100px;
+  height: 40px;
   background-color: rgb(48,172,251);
   color: white;
-  margin-top: 5px;
-  border-radius: 20px;
+  border-radius: 6px;
   border: none;
   font-size: 13pt;
-  font-weight: 700;
-  transition: 1s;
-  outline: none;
   cursor: pointer;
-  margin-bottom: 20px;
 }
 
 label {
@@ -82,40 +77,52 @@ label {
   opacity: 1;
 }
 
-.show.active {
+.show .active {
   transform: translateY(100px) scale(0) rotateY(180deg);
-  opacity: 0;
 }
 
 .error-message {
-  width: 230px;
-  font-size: 20px;
-  max-height: 20px;
-  color: rgb(125, 11, 11);
+  width: 300px;
+  height: 40px;
+  font-size: 22px;
+  color: rgb(231, 83, 83);
+  text-align: center;
 }
 
-.greeting {  
-  color: rgb(5, 4, 57);
-  text-align: left;
-  margin-right: 10em;
-  font-family: 'Satisfy', cursive;
-  font-size: 30px;
+.greeting {
+  color: white;
+  font-size: 20px;
+  position: absolute;
+  left: 62%;
 }
 
 .logout-icon, .favorite-icon {
-  width: 100px;
-  margin-right: 2em;
-  text-decoration: none;
-  font-weight: bolder;
-  color: white;
+  width: 120px;
+  border: none;
   height: 40px;
-  top: 10px;
-  background:rgb(38,78,7);
-  border-radius: 24px;
+  font-size: 18px;
+  background:rgb(94, 182, 94, 0.6);
+  border-radius: 5px;
   cursor: pointer;
+
+  &:hover {
+    background-color: white
+  }
 }
 
 .logout_favorite-icon {
   display: flex;
-  margin-right: 35em;
+  position: absolute;
+  left: 78%;
+  gap: 10px;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 24px;
+  position: relative;
+  padding-top: 20px;
+  left: 70%;
 }

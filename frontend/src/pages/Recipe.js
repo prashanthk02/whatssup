@@ -65,9 +65,8 @@ export default function Recipe() {
 				>
 					Add to favorites <BsFillBookmarkHeartFill />
 				</button>
-				<h1> {user.message} </h1>
 
-				{activeTab !== 'favorites' && <div className='details--div' >
+				<div className='details--div' >
 					{activeTab === 'ingredients' && (
 						<ul>
 							{details?.extendedIngredients.map(ingredient => {
@@ -84,7 +83,12 @@ export default function Recipe() {
 							></h3>
 						</div>
 					)}
-				</div>}
+
+          {activeTab === 'favorites' && (
+              <h2> {user.message} </h2>
+					)}
+
+				</div>
 
 			</div>
 		</div>
