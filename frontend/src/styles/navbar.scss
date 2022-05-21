@@ -9,8 +9,7 @@
   padding-left: 10px;
   padding-right: 20px;
   position: fixed;
-  top: 0;
-  z-index: 90;
+  z-index: 1;
 
   .link {
     text-decoration: none;
@@ -38,22 +37,9 @@
 }
 
 .three-icons {
+  padding-right: 1em;
   display: flex;
   justify-content: space-between;
-}
-
-.nav--login_signup button {
-  background: rgba(68, 93, 19, 0.691);
-  font-size: 17px;
-  font-style: italic;
-  border: none;
-  margin: 0;
-  padding: 0;
-}
-
-.nav--login_signup:hover {
-  background: rgba(161, 207, 68, 0.691);
-  font-weight: bold;  
 }
 
 .loginicon, .signupicon {
@@ -67,8 +53,4 @@
   background:rgb(38,78,7);
   border-radius: 24px;
   cursor: pointer;
-}
-
-.loginicon:hover, .signupicon:hover {
-  color: white;
 }

@@ -1,13 +1,20 @@
-.login-form{
-  z-index: 1;
-  margin-top: 120%;
-  margin-right: 100px;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
+.show {
+  margin-top: 40%;
+  margin-right: 45%;
 }
+
+.form-box{
+  z-index: 1;
+  width: 150px;
+  background: rgb(12, 75, 18);
+  padding-top: 0;
+  padding-right: 60px;
+  padding-left: 60px;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
 .login-box{
   border: 1px solid lightgrey;
   height: 25px;
@@ -64,22 +71,10 @@ label {
   text-align: center;
 }
 
-.form-box{
-  z-index: 1;
-  width: 150px;
-  background: rgb(12, 75, 18);
-  padding-top: 0;
-  padding-right: 80px;
-  padding-left: 80px;
-  border-radius: 20px;
-  box-shadow: 10px 10px 10px 1px rgba(0, 0, 0, 0.2);
-}
-
-.form-box-inner {
+.form-close {
   display: flex;
-  flex-direction: column;
+  justify-content: flex-end;
 }
-
 
 .show {
   display: block;
@@ -95,6 +90,7 @@ label {
 .error-message {
   width: 230px;
   font-size: 20px;
+  max-height: 20px;
   color: rgb(125, 11, 11);
 }
 

@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { HiHome } from 'react-icons/hi'
 import { useContext } from "react"
 import { userContext } from "../../providers/AuthProvider";
+import { useNavigate } from "react-router-dom";
 
 import "../../styles/navbar.scss"
 import Login from "./Login";
@@ -10,10 +11,10 @@ import SignUp from "./SignUp";
 
 export default function Navbar() {
 
-  const [isShowLogin, setIsShowLogin] = useState(true);
-  const [isShowSignUp, setIsShowSignUp] = useState(true);
+  const navigate = useNavigate();
 
-  const { user, setUser } = useContext(userContext);
+  const { user, setUser } = useContext(userContext);  
+
   return (
     <div className="nav">
       <div>
@@ -27,8 +28,8 @@ export default function Navbar() {
         <HiHome />
       </Link>
 
-      {(user.mode === "SignUp" || user.mode === "SignIn" || user.mode === "") && <button className="loginicon" onClick={() => setUser(prev => ({ ...prev, mode: "SignIn"}))}>Login</button>}
-      {(user.mode === "SignUp" || user.mode === "SignIn" || user.mode === "") && <button className="signupicon" onClick={() => setUser(prev => ({ ...prev, mode: "SignUp"}))}>Sign up</button>}      
+      {(user.mode === "SignUp" || user.mode !== "SignIn" || user.mode === "") && <button className="loginicon" onClick={() => setUser(prev => ({ ...prev, mode: "SignIn"}))}>Login</button>}
+      {(user.mode === "SignUp" || user.mode !== "SignIn" || user.mode === "") && <button className="signupicon" onClick={() => setUser(prev => ({ ...prev, mode: "SignUp"}))}>Sign up</button>}      
       </div>
 
       {user.mode === "SignIn" && <Login />}
