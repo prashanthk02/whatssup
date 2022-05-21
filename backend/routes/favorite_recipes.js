@@ -11,7 +11,15 @@ const addRecipe = function (user_id, recipeID, title, image, db) {
       return result.rows[0];
     });
 };
-
+const getRecipeById = function (recipeID, db) {
+  return db.query(`SELECT * FROM favorites where recipeID = $1`, [recipeID])
+    .then((result) => {
+      if (result.rows[0]) {
+        return true
+      }
+      result
+    })
+}
 //helper function to query database.
 const deleteRecipe = function (recipeID, db) {
   const queryString = `DELETE  from favorites where id = $1 RETURNING *`;
@@ -44,20 +52,26 @@ module.exports = (db) => {
     if (!recipe.user_id || !recipe.id || !recipe.title || !recipe.image) {
       return res.json({ error: "More information needed" });
     }
-    addRecipe(recipe.user_id, recipe.id, recipe.title, recipe.image, db)
-      .then(result => {
-        return res.json(result);
+    getRecipeById(recipe.id, db)
+      .then((result) => {
+        if (result) {
+          return res.json({ message: "Recipe already exists as favorite" });
+        }
+        addRecipe(recipe.user_id, recipe.id, recipe.title, recipe.image, db)
+          .then(result => {
+            return res.json({ message: "Recipe added to favorite list" });
+          })
+          .catch(err => {
+            res.json({ error: err.message });
+          });
       })
-      .catch(err => {
-        res.json({ error: err.message });
-      });
   });
 
   router.delete('/:id', (req, res) => {
 
     const recipeID = req.params.id;
 
-    if (!recipeID ) {
+    if (!recipeID) {
       return res.json({ error: "More information needed" });
     }
     deleteRecipe(recipeID, db)
