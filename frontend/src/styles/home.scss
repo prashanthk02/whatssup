@@ -4,7 +4,7 @@
 
   .msg {
     padding: 15px;
-    margin: 145px 80px 80px 50px;
+    margin: 60px 80px 80px 50px;
     border: 1px solid green;
     border-radius: 8px;
     background-color: rgb(212, 237, 189);
@@ -26,10 +26,13 @@
 }
 
 .app--search {
-  margin-top: 80px;
+  margin-top: 25px;
+  height: 200px;
+  position: relative;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+  align-items: flex-start;
 
 }
 
@@ -42,4 +45,5 @@
  justify-content: flex-end;
  margin-right: 50px;
  position: fixed;
+ z-index: 99;
 }

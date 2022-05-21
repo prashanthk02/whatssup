@@ -40,3 +40,16 @@
   padding: 20px;
   margin-top: 100px;
 }
+
+.delete-btn {
+  display: flex;
+  font-size: 30px;
+  color: maroon;
+  background: transparent;
+  border: none;
+  
+  &:hover {
+    color: red;
+    transform:rotateZ(30deg);
+  }
+}

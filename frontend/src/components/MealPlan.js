@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { FaSearch } from 'react-icons/fa'
 
-import '../styles/mealplan.scss'
+import '../styles/search.scss'
 
 export default function MealPlan() {
 	const [calories, setCalories] = useState('');
@@ -16,22 +16,21 @@ export default function MealPlan() {
 	};
 
 	return (
-    <div onClick={()=> setShow(!show)}>
-      <button className="search--btn" onClick={e => setShow(!show)}> Get MealPlan by calories for day </button>
+    <div className="search--box">
+      <button className="reveal--btn" onClick={e => setShow(!show)}>Daily meal plan by calories</button>
 
 		  {show && 
-        <div className='meal--form' onClick={e => e.stopPropagation()} >
+        <div className='search--form' onClick={e => setShow(!show)} >
 		    	<form>
-            <label>Plan your meals for day based on calories</label>
 		    		<input
 		    			type="number"
 		    			value={calories}
               placeholder="  Calories intake per day"
 		    			onChange={e => setCalories(e.target.value)}
+              onClick={e => e.stopPropagation()}
               />
 		    	</form>
-          <button onClick={submitHandler}>
-            Meal Plan
+          <button className="search--btn" onClick={submitHandler}>
             <FaSearch />
           </button>
 		    </div>

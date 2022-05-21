@@ -2,15 +2,12 @@ import { useEffect, useState } from 'react';
 import { Splide, SplideSlide } from '@splidejs/react-splide';
 import '@splidejs/splide/dist/css/splide.min.css';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 import '../styles/popular.scss'
 
 export default function Popular() {
 	const [popular, setPopular] = useState([]);
-
-	useEffect(() => {
-		getPopular();
-	}, []);
 
 	const getPopular = async () => {
 		const check = localStorage.getItem('popular');
@@ -18,19 +15,21 @@ export default function Popular() {
 		if (check) {
 			setPopular(JSON.parse(check));
 		} else {
-			try {
-				const api = await fetch(
+				axios.get(
 					`https://api.spoonacular.com/recipes/random?apiKey=${process.env.REACT_APP_API_KEY}&number=12`
-				);
-				const data = await api.json();
-
-				localStorage.setItem('popular', JSON.stringify(data.recipes));
-				setPopular(data.recipes);
-			} catch (err) {
-				console.log(err);
+				)
+        .then((response) => {
+          const data = response.data;
+          localStorage.setItem('popular', JSON.stringify(data.recipes));
+          setPopular(data.recipes);
+        })
+        .catch(() => {console.log('err')});
 			}
-		}
-	};
+		};
+  
+  useEffect(() => {
+		getPopular();
+	}, []);
 
 	return (
 		<div>

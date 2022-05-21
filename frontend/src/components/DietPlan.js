@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { FaSearch } from 'react-icons/fa'
 
-import '../styles/mealplan.scss'
+import '../styles/search.scss'
 
 export default function WeekPlan() {
 	const [diet, setDiet] = useState('');
@@ -16,13 +16,18 @@ export default function WeekPlan() {
 	};
 
 	return (
-    <div onClick={()=> setShow(!show)}>
-      <button className="search--btn" onClick={e => setShow(!show)}> By Diet </button>
+    <div className="search--box">
+      <button className="reveal--btn" onClick={e => setShow(!show)}> Search by Diet </button>
 
 		  {show && 
-        <div className='meal--form' onClick={e => e.stopPropagation()} >
+        <div className='search--form' onClick={e => setShow(!show)}>
 
-		    	<select className='selection' value={diet} onChange={e => setDiet(e.target.value)}>
+		    	<select
+            className='selection'
+            value={diet}
+            onChange={e => setDiet(e.target.value)}
+            onClick={e => e.stopPropagation()}
+            >
             <option >--Select--</option>
             <option value="Gluten Free">Gluten Free</option>
             <option value="Ketogenic">Ketogenic</option>
@@ -32,8 +37,7 @@ export default function WeekPlan() {
             <option value="Vegan">Vegan</option>
             <option value="Vegetarian">Vegetarian</option>
 		    	</select>
-          <button onClick={submitHandler}>
-            Get Recipes
+          <button className="search--btn" onClick={submitHandler}>
             <FaSearch />
           </button>
 		    </div>

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
+import axios from 'axios';
 
 import '../styles/page.scss'
 
@@ -8,12 +9,15 @@ export default function Cuisine() {
 
 	let params = useParams();
 
-	const getCuisine = async name => {
-		const data = await fetch(
+	function getCuisine(name) {
+		axios.get(
 			`https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.REACT_APP_API_KEY}&cuisine=${name}&number=23`
-		);
-		const recipes = await data.json();
-		setCuisine(recipes.results);
+		)
+    .then((response) => {
+      const recipes = response.data.results;
+		  setCuisine(recipes);
+    })
+    .catch(() => {console.log('err')});
 	};
 
 	useEffect(() => {
