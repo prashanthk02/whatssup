@@ -25,7 +25,7 @@ export default function Cuisine() {
   // helper function to handle delete a recipe from favorite list.
   const deleteUserFavorite = function (recipeId) {
     return axios.delete(`http://localhost:8080/favorite/${recipeId}`)
-      .then((response) => {
+      .then(() => {
         getUserFavorite(params.id);
       });
   }
@@ -42,7 +42,7 @@ export default function Cuisine() {
         {favorites.map(recipe => {
           return (
             <div className='result--card' key={recipe.id} >
-              <Link className='link' to={`/recipe/${recipe.id}`}>
+              <Link className='link' to={`/recipe/${recipe.recipeid}`}>
                 <img src={recipe.image} alt={recipe.title} />
                 <h4>{recipe.title}</h4>
               </Link>

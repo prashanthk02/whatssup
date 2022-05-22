@@ -1,6 +1,5 @@
 const router = require('express').Router();
 const axios = require("axios");
-const { response } = require('express');
 
 const users = [];
 

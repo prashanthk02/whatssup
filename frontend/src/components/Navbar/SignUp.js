@@ -36,7 +36,7 @@ export default function SignUp() {
       
           {closeSignUp === false && <form className="form-box" onSubmit={onSubmitSignUpForm}>
             <button className="close-btn" onClick={closeHandler}> X </button>
-            <h1 className="login-text">Sign Up</h1>
+            <h1 className="login-text">Sign up</h1>
             <br/>
             <label>Username</label>
             <input

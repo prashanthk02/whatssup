@@ -49,15 +49,15 @@ module.exports = (db) => {
 
     const recipe = req.body;
 
-    if (!recipe.user_id || !recipe.id || !recipe.title || !recipe.image) {
+    if (!recipe.user_id || !recipe.recipeid || !recipe.title || !recipe.image) {
       return res.json({ error: "More information needed" });
     }
-    getRecipeById(recipe.id, db)
+    getRecipeById(recipe.recipeid, db)
       .then((result) => {
         if (result) {
           return res.json({ message: "Recipe already exists in favorites" });
         }
-        addRecipe(recipe.user_id, recipe.id, recipe.title, recipe.image, db)
+        addRecipe(recipe.user_id, recipe.recipeid, recipe.title, recipe.image, db)
           .then(result => {
             return res.json({ message: "Recipe added to favorite list" });
           })
