@@ -19,13 +19,13 @@ What's sup is a recipe application that provides the user with mutiple recipe op
 
 
 ## Screenshots
-![]()
+![Home Page](https://github.com/prashanthk02/whatssup/blob/main/frontend/docs/Img1.png?raw=true)
 
-![]()
+![Home page with search](https://github.com/prashanthk02/whatssup/blob/main/frontend/docs/Img2.png?raw=true)
 
-![]()
+![Recipe search by cuisine](https://github.com/prashanthk02/whatssup/blob/main/frontend/docs/Img3.png?raw=true)
 
-![]()
+![Recipe details](https://github.com/prashanthk02/whatssup/blob/main/frontend/docs/Img4.png?raw=true)
 
 ## Dependencies
 * Axios
