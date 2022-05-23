@@ -30,11 +30,10 @@ export default function Home() {
       </div>
 
       <div className='msg'>
-        <h1 >Welcome to What's Supp</h1>
+        <h2 >Welcome to What's Sup</h2>
         <span>
-          Wondering what to cook? we've got you covered
-          choose from our range of mutiple receipes searching by your choice of ingredients
-          or plan your meals for whole day by calories.
+          Yummy choices for your tummy! <br/> Take your taste buds for a tour with our different cuisines
+          or find recipes based on ingredients, diet, or calories.
         </span>
       </div>
       

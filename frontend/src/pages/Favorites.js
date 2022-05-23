@@ -36,7 +36,7 @@ export default function Cuisine() {
 
   return (
     <div>
-      <h1 className='result--title'> {user.name}'s Favorites recipe </h1>
+      <h1 className='result--title'> {user.name}'s favorite recipes </h1>
 
       <div className='result--items'>
         {favorites.map(recipe => {

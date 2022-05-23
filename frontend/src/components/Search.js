@@ -22,7 +22,7 @@ export default function Search() {
       {show && 
         <div className="search--form" spellCheck="false" onClick={()=> setShow(!show)} >
           <form autoComplete="off">
-            <input type="text" placeholder="  potato,tomato,spinach" onClick={e => e.stopPropagation()} onChange={e => setIngredients(e.target.value)} />
+            <input type="text" placeholder="  potato, tomato, spinach" onClick={e => e.stopPropagation()} onChange={e => setIngredients(e.target.value)} />
           </form>
           <button type="button" className="search--btn" onClick={submitHandler}>
             <FaSearch />

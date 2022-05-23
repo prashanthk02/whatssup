@@ -9,7 +9,7 @@ import '../styles/popular.scss'
 export default function Popular() {
 	const [popular, setPopular] = useState([]);
 
-	const getPopular = async () => {
+	function getPopular() {
 		const check = localStorage.getItem('popular');
 
 		if (check) {

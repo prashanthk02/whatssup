@@ -10,15 +10,22 @@ export default function Meal() {
 	let params = useParams();
 
 	function getMeal(cals) {
-		axios.get(
-			`https://api.spoonacular.com/mealplanner/generate?apiKey=${process.env.REACT_APP_API_KEY}&timeFrame=day&targetCalories=${cals}`
-		)
-    .then((response) => {
-      const recipes = response.data.meals;
-		  setMeal(recipes);
-    })
-    .catch(() => {console.log('err')});
-	};
+    const plan = localStorage.getItem(cals);
+
+    if  (plan) {
+      setMeal(JSON.parse(plan));
+    } else {
+        axios.get(
+          `https://api.spoonacular.com/mealplanner/generate?apiKey=${process.env.REACT_APP_API_KEY}&timeFrame=day&targetCalories=${cals}`
+        )
+        .then((response) => {
+          const recipes = response.data.meals;
+          localStorage.setItem(cals, JSON.stringify(response.data.meals));
+          setMeal(recipes);
+        })
+        .catch(() => {console.log('err')});
+      }
+    };
 
 	useEffect(() => {
 		getMeal(params.mealplan);
